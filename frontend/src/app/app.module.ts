@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -7,6 +8,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { RegisterComponent } from './register/register.component';
+import { FileUploadComponent } from './file-upload/file-upload.component';
 
 @NgModule({
   declarations: [
@@ -14,11 +16,13 @@ import { RegisterComponent } from './register/register.component';
     NavbarComponent,
     PaginaPrincipalComponent,
     SignUpComponent,
-    RegisterComponent
+    RegisterComponent,
+    FileUploadComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
