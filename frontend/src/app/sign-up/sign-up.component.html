@@ -1,28 +1,18 @@
-<div class="row">
-    <div class="col-lg-10 col-xl-9 mx-auto">
-      <div class="card card-signin flex-row my-5">
-        <div class="card-img-left d-none d-md-flex">
-           <!-- Background image for card set in CSS! -->
+<div class="login-form">
+    <form action="/examples/actions/confirmation.php" method="post">
+        <h2 class="text-center">Iniciar Sesion</h2>       
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Usuario" required="required">
         </div>
-        <div class="card-body">
-          <h5 class="card-title text-center">Iniciar Sesion</h5>
-          <form class="form-signin">
-            <div class="form-label-group">
-              <input type="text" id="inputUserame" class="form-control" placeholder="Username" required autofocus>
-              <label for="inputUserame">Nombre de usuario</label>
-            </div>
-
-            <div class="form-label-group">
-              <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-              <label for="inputPassword">Contrase►a</label>
-            </div>
-            
-
-            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Iniciar Sesion</button>
-            <a class="d-block text-center mt-2 small" href="#">Registrarme</a>
-           
-          </form>
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder="Contraseña" required="required">
         </div>
-      </div>
-    </div>
-  </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">Iniciar Sesion</button>
+        </div>
+        <div class="clearfix">
+            <label class="float-left form-check-label"><input type="checkbox"> Recuerdame</label>
+        </div>        
+    </form>
+    <p class="text-center col-md-auto "><a href="#">Crear una nueva cuenta</a></p>
+</div>
