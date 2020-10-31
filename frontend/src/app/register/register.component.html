@@ -1,12 +1,15 @@
 <div class="signup-form">
     <form action="/examples/actions/confirmation.php" method="post">
         <h2>Registrar</h2>
-        <p class="hint-text">Podrás realizar reservas, cargar imágenes de la estadia en el hotel, además de reaccionar y comentar las imágenes de otros usuarios.
+        <p class="hint-text">Podrás realizar reservas, cargar imágenes de la estadia en el hotel, además de reaccionar y
+            comentar las imágenes de otros usuarios.
         </p>
         <div class="form-group">
             <div class="row">
-                <div class="col"><input type="text" class="form-control" name="first_name" placeholder="Nombre" required="required"></div>
-                <div class="col"><input type="text" class="form-control" name="last_name" placeholder="Apellido" required="required"></div>
+                <div class="col"><input type="text" class="form-control" name="first_name" placeholder="Nombre"
+                        required="required"></div>
+                <div class="col"><input type="text" class="form-control" name="last_name" placeholder="Apellido"
+                        required="required"></div>
             </div>
         </div>
         <div class="form-group">
@@ -16,26 +19,28 @@
             <input type="password" class="form-control" name="password" placeholder="Contraseña" required="required">
         </div>
         <div class="form-group">
-            <input type="password" class="form-control" name="confirm_password" placeholder="Repetir contraseña" required="required">
+            <input type="password" class="form-control" name="confirm_password" placeholder="Repetir contraseña"
+                required="required">
         </div>
 
-        <div class="row justify-content-center">
-            <label>Sexo</label>
-            <div class="col align-self-center">
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                    <label class="form-check-label" for="inlineCheckbox1">Hombre</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                    <label class="form-check-label" for="inlineCheckbox1">Mujer</label>
-                </div>
+
+        <label>   Sexo</label>
+        <div class="hint-text">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                <label class="form-check-label" for="inlineCheckbox1">Hombre</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                <label class="form-check-label" for="inlineCheckbox1">Mujer</label>
             </div>
         </div>
 
+
         <div class="form-group">
-            <label class="form-check-label"><input type="checkbox" required="required"> I accept the <a href="#">Terms of
-          Use</a> &amp; <a href="#">Privacy Policy</a></label>
+            <label class="form-check-label"><input type="checkbox" required="required"> I accept the <a href="#">Terms
+                    of
+                    Use</a> &amp; <a href="#">Privacy Policy</a></label>
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-success btn-lg btn-block">Registrarse</button>
