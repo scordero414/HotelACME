@@ -1,3 +1,12 @@
+
+.image-fondo1 {
+    background-image: url("../../assets/registration-page-background-504-1.png");
+    background-size: cover;
+    background-position: center;
+    background-color: rgb(7, 59, 76);
+}
+
+
 body {
     color: #fff;
     background: #63738a;

@@ -1,61 +1,72 @@
-<div class="signup-form">
-    <form action="/examples/actions/confirmation.php" method="post">
-        <h2>Registrar</h2>
-        <p class="hint-text">Podrás realizar reservas, cargar imágenes de la estadia en el hotel, además de reaccionar y comentar las imágenes de otros usuarios.
-        </p>
-        <div class="form-group">
-            <div class="row">
-                <div class="col"><input type="text" class="form-control" name="first_name" placeholder="Nombre" required="required"></div>
-                <div class="col"><input type="text" class="form-control" name="last_name" placeholder="Apellido" required="required"></div>
+<div class="image-fondo1 ">
+    <div class="signup-form">
+        <form action="/examples/actions/confirmation.php" method="post">
+            <h2>Registrar</h2>
+            <p class="hint-text">Podrás realizar reservas, cargar imágenes de la estadia en el hotel, además de
+                reaccionar y comentar las imágenes de otros usuarios.
+            </p>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col"><input type="text" class="form-control" name="first_name" placeholder="Nombre"
+                            required="required"></div>
+                    <div class="col"><input type="text" class="form-control" name="last_name" placeholder="Apellido"
+                            required="required"></div>
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <input type="email" class="form-control" name="email" placeholder="Correo electrónico" required="required">
-        </div>
-        <div class="form-group">
-            <input type="password" class="form-control" name="password" placeholder="Contraseña" required="required">
-        </div>
-        <div class="form-group">
-            <input type="password" class="form-control" name="confirm_password" placeholder="Repetir contraseña" required="required">
-        </div>
-
-
-        <label>Sexo</label>
-        <div class="hint-text">
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                <label class="form-check-label" for="exampleRadios1">
-                  Hombre
-                </label>
+            <div class="form-group">
+                <input type="email" class="form-control" name="email" placeholder="Correo electrónico"
+                    required="required">
             </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                <label class="form-check-label" for="exampleRadios2">
-                  Mujer
-                </label>
+            <div class="form-group">
+                <input type="password" class="form-control" name="password" placeholder="Contraseña"
+                    required="required">
             </div>
-        </div>
-
-        <label for="example-date-input">Date</label>
-
-        <div class="form-group">
-            <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
-        </div>
-
-        <label>Elige tu foto</label>
-        <div class="hint-text">
-            <app-file-upload></app-file-upload>
-        </div>
+            <div class="form-group">
+                <input type="password" class="form-control" name="confirm_password" placeholder="Repetir contraseña"
+                    required="required">
+            </div>
 
 
-        <div class="form-group">
-            <label class="form-check-label"><input type="checkbox" required="required"> I accept the <a href="#">Terms
-                    of
-                    Use</a> &amp; <a href="#">Privacy Policy</a></label>
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-success btn-lg btn-block">Registrarse</button>
-        </div>
-    </form>
-    <div class="text-center">¿Ya tienes una cuenta? <a href="">Ingresa</a></div>
+            <label>Sexo</label>
+            <div class="hint-text">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
+                        value="option1" checked>
+                    <label class="form-check-label" for="exampleRadios1">
+                        Hombre
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
+                        value="option2">
+                    <label class="form-check-label" for="exampleRadios2">
+                        Mujer
+                    </label>
+                </div>
+            </div>
+
+            <label for="example-date-input">Date</label>
+
+            <div class="form-group">
+                <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
+            </div>
+
+            <label>Elige tu foto</label>
+            <div class="hint-text">
+                <app-file-upload></app-file-upload>
+            </div>
+
+
+            <div class="form-group">
+                <label class="form-check-label"><input type="checkbox" required="required"> I accept the <a
+                        href="#">Terms
+                        of
+                        Use</a> &amp; <a href="#">Privacy Policy</a></label>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-success btn-lg btn-block">Registrarse</button>
+            </div>
+        </form>
+        <div class="text-center">¿Ya tienes una cuenta? <a href="">Ingresa</a></div>
+    </div>
 </div>
