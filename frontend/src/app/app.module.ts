@@ -16,6 +16,8 @@ import { RegisterComponent } from './register/register.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
 
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { DescriptionImageComponent } from './description-image/description-image.component';
+import { ModalModule } from 'angular-custom-modal';
 import { from } from 'rxjs';
 import { SelectOriginComponent } from './select-origin/select-origin.component';
 
@@ -31,6 +33,7 @@ import { SelectOriginComponent } from './select-origin/select-origin.component';
     RegisterComponent,
     FileUploadComponent,
     UserProfileComponent,
+    DescriptionImageComponent,
     SelectOriginComponent
   ],
   imports: [
@@ -39,7 +42,8 @@ import { SelectOriginComponent } from './select-origin/select-origin.component';
     HttpClientModule,
     NgbModule,
     Ng2PageScrollModule,
-    LightboxModule
+    LightboxModule,
+    ModalModule
   ],
   providers: [CountriesService],
   bootstrap: [AppComponent]

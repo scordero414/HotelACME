@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Lightbox } from 'ngx-lightbox';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
   selector: 'app-user-profile',
@@ -8,14 +9,20 @@ import { Lightbox } from 'ngx-lightbox';
 })
 export class UserProfileComponent implements OnInit {
 
-  public album = [{src: '../../assets/glen-jackson-301620.jpg', caption: '', thumb: ''}];
+
   
-  constructor(private _lightbox: Lightbox) { }
+  constructor( private modalService: NgbModal) { }
+
+  private index: Number;
 
   ngOnInit(): void {
   }
 
-  public open() {
-    this._lightbox.open(this.album, 0);
+  
+
+
+  openXl(content) {
+    this.modalService.open(content, { size: 'xl' , centered: true});
   }
+  
 }
