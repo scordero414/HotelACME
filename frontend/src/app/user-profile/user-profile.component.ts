@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Lightbox } from 'ngx-lightbox';
 
 @Component({
   selector: 'app-user-profile',
@@ -7,12 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserProfileComponent implements OnInit {
 
-  constructor() { }
+  public album = [{src: '../../assets/glen-jackson-301620.jpg', caption: '', thumb: ''}];
+  
+  constructor(private _lightbox: Lightbox) { }
 
   ngOnInit(): void {
   }
 
-  public print(imagen1) {
-    console.log(imagen1);
+  public open() {
+    this._lightbox.open(this.album, 0);
   }
 }
