@@ -1,12 +1,57 @@
-<div class="jumbotron">
-    <div class="row justify-content-center">
-        <div class="col-5 card mb-4 shadow-sm">
-            <img class="bd-placeholder-img card-img-top changeCursor" width="100%" height="225"
-                src="../../assets/glen-jackson-301620.jpg" alt="Foto1" >
-        </div>
-        <div class="col-1"></div>
-        <div class="col-6">
-
+<div class="row justify-content-center">
+    <div class="col-5">
+        <img class="bd-placeholder-img card-img-top changeCursor" width="100%" height="100%"
+            src="../../assets/glen-jackson-301620.jpg" alt="Foto1" (click)="open()">
+    </div>
+    <!-- <div class="col-1" style="background-color: rgb(33, 186, 233);"></div> -->
+    <div class="col-6">
+        <!-- <div class="row">
+            <div class="col-3 ">
+                <img src="../../assets/girl.jpg" class="d-flex mx-auto imgPerfiles" />
+            </div>
+            <div class="col-6 align-self-center">
+                <h1>Persona de prueba</h1>
+                <p class="lead text-muted">Persona que sirve de prueba para proyectos de estudiantes que dejan todo para
+                    lo ultimo.</p>
+            </div>
+        </div> -->
+        <div class="d-flex row align-self-center">
+            <div class="col align-self-center">
+                <div class="d-flex flex-column comment-section">
+                    <div class="bg-white p-2">
+                        <div class="d-flex flex-row user-info"><img class="rounded-circle"
+                                src="https://i.imgur.com/RpzrMR2.jpg" width="40">
+                            <div class="d-flex flex-column justify-content-start ml-2"><span
+                                    class="d-block font-weight-bold name">Marry Andrews</span><span
+                                    class="date text-black-50">Shared publicly - Jan 2020</span></div>
+                        </div>
+                        <div class="mt-2">
+                            <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white">
+                        <div class="d-flex flex-row fs-12">
+                            <div class="like p-2 cursor"><i class="fa fa-thumbs-o-up"></i><span class="ml-1">Like</span>
+                            </div>
+                            <div class="like p-2 cursor"><i class="fa fa-commenting-o"></i><span
+                                    class="ml-1">Comment</span></div>
+                            <div class="like p-2 cursor"><i class="fa fa-share"></i><span class="ml-1">Share</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-light p-2">
+                        <div class="d-flex flex-row align-items-start"><img class="rounded-circle"
+                                src="https://i.imgur.com/RpzrMR2.jpg" width="40"><textarea
+                                class="form-control ml-1 shadow-none textarea"></textarea></div>
+                        <div class="mt-2 text-right"><button class="btn btn-primary btn-sm shadow-none"
+                                type="button">Post comment</button><button
+                                class="btn btn-outline-primary btn-sm ml-1 shadow-none" type="button">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
