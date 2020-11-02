@@ -12,6 +12,7 @@ import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.co
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { RegisterComponent } from './register/register.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
+import {Ng2PageScrollModule} from 'ng2-page-scroll';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    Ng2PageScrollModule
   ],
   providers: [],
   bootstrap: [AppComponent]
