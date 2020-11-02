@@ -4,6 +4,7 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
 import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.component';
 import { RegisterComponent } from './register/register.component';
 import { SelectOriginComponent } from './select-origin/select-origin.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 
 const routes: Routes = [
@@ -11,7 +12,8 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'file-upload', component: FileUploadComponent},
   { path: 'user-profile', component: UserProfileComponent},
-  { path: 'origin', component: SelectOriginComponent}
+  { path: 'origin', component: SelectOriginComponent},
+  { path: 'login', component: SignUpComponent}
 ];
 
 @NgModule({
