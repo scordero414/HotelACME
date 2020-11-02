@@ -12,7 +12,7 @@ export class UserProfileComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public print(imagen1) {
-    console.log(imagen1);
+  public print() {
+    console.log("hola");
   }
 }
