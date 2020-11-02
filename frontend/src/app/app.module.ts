@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {Ng2PageScrollModule} from 'ng2-page-scroll';
+import { LightboxModule } from 'ngx-lightbox';
 
 import { HttpClientModule } from '@angular/common/http';
 
@@ -32,7 +33,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
-    Ng2PageScrollModule
+    Ng2PageScrollModule,
+    LightboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
