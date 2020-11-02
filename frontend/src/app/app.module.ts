@@ -16,6 +16,8 @@ import { RegisterComponent } from './register/register.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
 
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { DescriptionImageComponent } from './description-image/description-image.component';
+import { ModalModule } from 'angular-custom-modal';
 
 
 @NgModule({
@@ -26,7 +28,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     SignUpComponent,
     RegisterComponent,
     FileUploadComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    DescriptionImageComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     HttpClientModule,
     NgbModule,
     Ng2PageScrollModule,
-    LightboxModule
+    LightboxModule,
+    ModalModule
   ],
   providers: [],
   bootstrap: [AppComponent]

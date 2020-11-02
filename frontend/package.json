@@ -21,6 +21,7 @@
     "@angular/platform-browser-dynamic": "~10.0.11",
     "@angular/router": "~10.0.11",
     "@ng-bootstrap/ng-bootstrap": "^7.0.0",
+    "angular-custom-modal": "^1.2.0",
     "bootstrap": "^4.5.3",
     "bootstrap-select": "^1.13.18",
     "jquery": "^3.5.1",

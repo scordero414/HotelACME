@@ -8,9 +8,12 @@ import { Lightbox } from 'ngx-lightbox';
 })
 export class UserProfileComponent implements OnInit {
 
-  public album = [{src: '../../assets/glen-jackson-301620.jpg', caption: '', thumb: ''}];
+  public album = [{src: '../../assets/glen-jackson-301620.jpg', caption: '', thumb: ''},];
+
   
   constructor(private _lightbox: Lightbox) { }
+
+  private index: Number;
 
   ngOnInit(): void {
   }
@@ -18,4 +21,6 @@ export class UserProfileComponent implements OnInit {
   public open() {
     this._lightbox.open(this.album, 0);
   }
+
+  
 }
