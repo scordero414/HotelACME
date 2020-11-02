@@ -1,11 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import {Ng2PageScrollModule} from 'ng2-page-scroll';
+import { Ng2PageScrollModule } from 'ng2-page-scroll';
 import { LightboxModule } from 'ngx-lightbox';
 
 import { HttpClientModule } from '@angular/common/http';
-
+import { CountriesService } from './countries.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +18,10 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { DescriptionImageComponent } from './description-image/description-image.component';
 import { ModalModule } from 'angular-custom-modal';
+import { from } from 'rxjs';
+import { SelectOriginComponent } from './select-origin/select-origin.component';
+
+
 
 
 @NgModule({
@@ -29,7 +33,8 @@ import { ModalModule } from 'angular-custom-modal';
     RegisterComponent,
     FileUploadComponent,
     UserProfileComponent,
-    DescriptionImageComponent
+    DescriptionImageComponent,
+    SelectOriginComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +45,7 @@ import { ModalModule } from 'angular-custom-modal';
     LightboxModule,
     ModalModule
   ],
-  providers: [],
+  providers: [CountriesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

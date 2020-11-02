@@ -1,0 +1,21 @@
+<div class="form-group">
+    <label>Lugar de residencia</label>
+    <select class="form-control centerValue" (change)="onChangeCountry($event.target.value)">
+      <option value="-1">--Seleccionar país--</option>
+      <option *ngFor="let country of countryInfo; let i = index" value="{{i}}">{{country.CountryName}}</option>
+    </select>
+</div>
+
+<div class="form-group" *ngIf="stateInfo.length != 0">
+    <select class="form-control centerValue" (change)="onChangeState($event.target.value)">
+      <option value="-1">--Seleccionar estado--</option>
+      <option *ngFor="let state of stateInfo; let j = index" value="{{j}}">{{state.StateName}}</option>
+    </select>
+</div>
+
+<div class="form-group" *ngIf="cityInfo.length != 0">
+    <select class="form-control centerValue">
+      <option value="-1">--Seleccionar ciudad--</option>
+      <option *ngFor="let city of cityInfo; let k = index" value="{{k}}">{{city}}</option>
+    </select>
+</div>
