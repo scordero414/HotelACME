@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {Ng2PageScrollModule} from 'ng2-page-scroll';
 
 import { HttpClientModule } from '@angular/common/http';
 
@@ -12,7 +13,8 @@ import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.co
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { RegisterComponent } from './register/register.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
-import {Ng2PageScrollModule} from 'ng2-page-scroll';
+
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 
 @NgModule({
@@ -22,7 +24,8 @@ import {Ng2PageScrollModule} from 'ng2-page-scroll';
     PaginaPrincipalComponent,
     SignUpComponent,
     RegisterComponent,
-    FileUploadComponent
+    FileUploadComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
