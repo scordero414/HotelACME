@@ -10,7 +10,7 @@ export class PaginaPrincipalComponent implements OnInit {
 
   constructor() { }
 
-  public images = ['../../assets/mbr.jpg', '../../assets/mbr-1.jpg', '../../assets/mbr-3.jpg'];
+  public images = ['../../assets/mbr.jpg', '../../assets/mbr-3.jpg', '../../assets/mbr-3.jpg'];
 
   ngOnInit(): void {
   }
