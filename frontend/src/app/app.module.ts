@@ -43,7 +43,7 @@ import { NgxSliderModule } from '@angular-slider/ngx-slider';
     SelectOriginComponent,
     RoomsComponent,
     FooterComponent,
-    ReservationComponent
+    ReservationComponent   
   ],
   imports: [
     BrowserModule,
@@ -54,7 +54,7 @@ import { NgxSliderModule } from '@angular-slider/ngx-slider';
     LightboxModule,
     ModalModule,
     RouterModule,
-    NgxSliderModule
+    NgxSliderModule    
   ],
   providers: [CountriesService],
   bootstrap: [AppComponent]
