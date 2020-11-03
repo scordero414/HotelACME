@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pagina-principal',
@@ -8,11 +9,15 @@ import { Component, OnInit } from '@angular/core';
 export class PaginaPrincipalComponent implements OnInit {
 
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   public images = ['../../assets/mbr.jpg', '../../assets/mbr-3.jpg', '../../assets/mbr-3.jpg'];
 
   ngOnInit(): void {
+  }
+
+  public goReservation() {
+    this.router.navigate(["/reservation"]);
   }
 
 }

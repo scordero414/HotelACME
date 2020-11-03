@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RouterModule } from '@angular/router';
+
 import { Ng2PageScrollModule } from 'ng2-page-scroll';
 import { LightboxModule } from 'ngx-lightbox';
 
@@ -20,7 +22,10 @@ import { DescriptionImageComponent } from './description-image/description-image
 import { ModalModule } from 'angular-custom-modal';
 import { from } from 'rxjs';
 import { SelectOriginComponent } from './select-origin/select-origin.component';
+import { RoomsComponent } from './rooms/rooms.component';
 import { FooterComponent } from './footer/footer.component';
+import { ReservationComponent } from './reservation/reservation.component';
+// import { NgxSliderModule } from '@angular-slider/ngx-slider';
 
 
 
@@ -36,7 +41,9 @@ import { FooterComponent } from './footer/footer.component';
     UserProfileComponent,
     DescriptionImageComponent,
     SelectOriginComponent,
-    FooterComponent
+    RoomsComponent,
+    FooterComponent,
+    ReservationComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +52,8 @@ import { FooterComponent } from './footer/footer.component';
     NgbModule,
     Ng2PageScrollModule,
     LightboxModule,
-    ModalModule
+    ModalModule,
+    RouterModule
   ],
   providers: [CountriesService],
   bootstrap: [AppComponent]
