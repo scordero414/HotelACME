@@ -25,7 +25,7 @@ import { SelectOriginComponent } from './select-origin/select-origin.component';
 import { RoomsComponent } from './rooms/rooms.component';
 import { FooterComponent } from './footer/footer.component';
 import { ReservationComponent } from './reservation/reservation.component';
-// import { NgxSliderModule } from '@angular-slider/ngx-slider';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
 
 
 
@@ -53,7 +53,8 @@ import { ReservationComponent } from './reservation/reservation.component';
     Ng2PageScrollModule,
     LightboxModule,
     ModalModule,
-    RouterModule
+    RouterModule,
+    NgxSliderModule
   ],
   providers: [CountriesService],
   bootstrap: [AppComponent]
