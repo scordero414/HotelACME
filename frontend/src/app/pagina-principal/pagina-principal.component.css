@@ -1,17 +1,18 @@
 .imgPerfiles {
-    width: 8rem;
-    border-radius: 5rem;
-    margin: 1.3rem auto 1rem auto
+  width: 8rem;
+  border-radius: 5rem;
+  margin: 1.3rem auto 1rem auto
 }
 
 .image-fondo1 {
-    background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("../../assets/thumb-1920-372649.jpg");
-    background-size: cover;
-    background-position: center;
-    background-color: rgb(7, 59, 76);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("../../assets/thumb-1920-372649.jpg");
+  background-size: cover;
+  background-position: center;
+  background-color: rgb(7, 59, 76);
 }
 
 .image-fondo2 {
-    background-size: cover;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("../../assets/playa.jpg");
+  background-size: cover;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("../../assets/playa.jpg");
 }
+

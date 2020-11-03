@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { FileUploadComponent } from './file-upload/file-upload.component';
 import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.component';
 import { RegisterComponent } from './register/register.component';
+import { ReservationComponent } from './reservation/reservation.component';
 import { RoomsComponent } from './rooms/rooms.component';
 import { SelectOriginComponent } from './select-origin/select-origin.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'user-profile', component: UserProfileComponent},
   { path: 'origin', component: SelectOriginComponent},
   { path: 'login', component: SignUpComponent},
-  { path: 'rooms', component: RoomsComponent}
+  { path: 'rooms', component: RoomsComponent},
+  { path: 'reservation', component: ReservationComponent}
 ];
 
 @NgModule({

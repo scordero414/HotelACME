@@ -24,5 +24,8 @@ export class UserProfileComponent implements OnInit {
   openXl(content) {
     this.modalService.open(content, { size: 'xl' , centered: true});
   }
+  openM(content) {
+    this.modalService.open(content, { size: 'lg' , centered: true});
+  }
   
 }

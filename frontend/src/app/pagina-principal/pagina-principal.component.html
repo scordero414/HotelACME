@@ -1,6 +1,4 @@
 <main role="main">
-
-
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron image-fondo1">
         <div class="row justify-content-center">
@@ -36,7 +34,7 @@
                         </ng-template>
                     </ngb-carousel>
                 </div>
-                <p class="text-center"><a class="btn btn-primary btn-lg" href="#" role="button">Reserva ya!</a></p>
+                <p class="text-center"><a class="btn btn-primary btn-lg" (click)="goReservation()" role="button">Reserva ya!</a></p>
             </div>
             <div class="col-1"></div>
             <div class="col-4 col-md-auto align-self-center">
@@ -177,6 +175,7 @@
         </div>
     </footer>
 
+    <app-footer></app-footer>
 
 
 </main>
