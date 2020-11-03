@@ -28,9 +28,9 @@ export class ReservationComponent implements OnInit {
     translate: (value: number, label: LabelType): string => {
       switch (label) {
         case LabelType.Low:
-          return '<b>Min price:</b> $' + value;
+          return '<b>Mínimo:</b> $' + value;
         case LabelType.High:
-          return '<b>Max price:</b> $' + value;
+          return '<b>Máximo:</b> $' + value;
         default:
           return '$' + value;
       }
