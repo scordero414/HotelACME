@@ -20,6 +20,7 @@ import { DescriptionImageComponent } from './description-image/description-image
 import { ModalModule } from 'angular-custom-modal';
 import { from } from 'rxjs';
 import { SelectOriginComponent } from './select-origin/select-origin.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -34,7 +35,8 @@ import { SelectOriginComponent } from './select-origin/select-origin.component';
     FileUploadComponent,
     UserProfileComponent,
     DescriptionImageComponent,
-    SelectOriginComponent
+    SelectOriginComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
