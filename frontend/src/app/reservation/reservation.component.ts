@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Options, LabelType } from '@angular-slider/ngx-slider';
+import { PlanHabitacionComponent } from '../plan-habitacion/plan-habitacion.component';
+import { RoomsComponent } from '../rooms/rooms.component';
 
 @Component({
   selector: 'app-reservation',
@@ -8,9 +10,14 @@ import { Options, LabelType } from '@angular-slider/ngx-slider';
 })
 export class ReservationComponent implements OnInit {
 
-  constructor() { }
+  constructor() { 
+
+  }
+
+  public isReservaCompleta: Boolean;
 
   ngOnInit(): void {
+    this.isReservaCompleta = false;
   }
 
   minValue: number = 100;
@@ -30,6 +37,9 @@ export class ReservationComponent implements OnInit {
     }
   };
 
+  public mostrarHabitaciones(){
+    this.isReservaCompleta = true;
+  }
 
 
 }

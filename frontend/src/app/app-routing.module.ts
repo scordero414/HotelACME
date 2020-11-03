@@ -8,6 +8,8 @@ import { RoomsComponent } from './rooms/rooms.component';
 import { SelectOriginComponent } from './select-origin/select-origin.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { ReservasUsuariosComponent } from './reservas-usuarios/reservas-usuarios.component' 
+
 
 const routes: Routes = [
   { path: '', component: PaginaPrincipalComponent },
@@ -17,7 +19,8 @@ const routes: Routes = [
   { path: 'origin', component: SelectOriginComponent},
   { path: 'login', component: SignUpComponent},
   { path: 'rooms', component: RoomsComponent},
-  { path: 'reservation', component: ReservationComponent}
+  { path: 'reservation', component: ReservationComponent},
+  { path: 'admin', component: ReservasUsuariosComponent}
 ];
 
 @NgModule({

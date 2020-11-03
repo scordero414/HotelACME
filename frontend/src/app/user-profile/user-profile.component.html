@@ -1,144 +1,183 @@
 <main role="main">
-    <section class="jumbotron text-center">
+  <section class="jumbotron text-center">
 
-        <div class="row justify-content-center">
-            <div class="col-3 ">
-                <img src="../../assets/girl.jpg" class="d-flex mx-auto imgPerfiles" />
+    <div class="row justify-content-center">
+      <div class="col-3 ">
+        <img src="../../assets/girl.jpg" class="d-flex mx-auto imgPerfiles" />
+      </div>
+      <div class="col-6 align-self-center">
+        <h1>Persona de prueba</h1>
+        <p class="lead text-muted">Persona que sirve de prueba para proyectos de estudiantes que dejan todo para
+          lo ultimo.</p>
+
+        <ng-template #content let-modal>
+          <div class="modal-header">
+            <h4 class="modal-title">Descripcion</h4>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <app-description-image></app-description-image>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+          </div>
+        </ng-template>
+
+
+        <button type="button" class="btn btn-primary mr-5" (click)="openM(content2)">Subir una foto</button>
+        <button type="button" class="btn btn-primary" (click)="openM(content3)">Mis reservas</button>
+
+        <ng-template #content2 let-modal>
+          <div class="modal-body">
+            <div class="row justify-content-center">
+              <h5 class="card-title">Subir una foto</h5>
             </div>
-            <div class="col-6 align-self-center">
-                <h1>Persona de prueba</h1>
-                <p class="lead text-muted">Persona que sirve de prueba para proyectos de estudiantes que dejan todo para
-                    lo ultimo.</p>
-
-                <ng-template #content let-modal>
-                    <div class="modal-header">
-                        <h4 class="modal-title">Descripcion</h4>
-                        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <app-description-image></app-description-image>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
-                    </div>
-                </ng-template>
-                <button type="button" class="btn btn-primary" (click)="openM(content2)">Subir una foto</button>
-                <ng-template #content2 let-modal>
-                    <div class="modal-body">
-                        <div class="row justify-content-center">
-                            <h5 class="card-title">Subir una foto</h5>
-                        </div>
-                        <div class="card-body text-secondary">
-                            <div class="form-group green-border-focus">
-                                <h5 class="card-title">Descripcion.</h5>
-                                <textarea class="form-control" id="exampleFormControlTextarea5" rows="2"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <h5 class="card-title">Ubicacion.</h5>
-                                <select class="form-control" id="exampleFormControlSelect1">
-                                    <option>Seleccione una ubicacion.</option>
-                                    <option>Playa 1</option>
-                                    <option>Bar</option>
-                                    <option>Playa 2</option>
-                                    <option>Suits</option>
-                                </select>
-                            </div>
-                            <h5 class="card-title">Selecciona la foto que deseas subir.</h5>
-                            <app-file-upload></app-file-upload>
-                        </div>
-                        <hr>
-                        <div class=" card-body row justify-content-center">
-                            <svg width="5em" height="5em" viewBox="0 0 16 16" class="bi bi-cloud-upload"
-                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M4.406 1.342A5.53 5.53 0 0 1 8 0c2.69 0 4.923 2 5.166 4.579C14.758 4.804 16 6.137 16 7.773 16 9.569 14.502 11 12.687 11H10a.5.5 0 0 1 0-1h2.688C13.979 10 15 8.988 15 7.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 2.825 10.328 1 8 1a4.53 4.53 0 0 0-2.941 1.1c-.757.652-1.153 1.438-1.153 2.055v.448l-.445.049C2.064 4.805 1 5.952 1 7.318 1 8.785 2.23 10 3.781 10H6a.5.5 0 0 1 0 1H3.781C1.708 11 0 9.366 0 7.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383z" />
-                                <path fill-rule="evenodd"
-                                    d="M7.646 4.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V14.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3z" />   
-                            </svg>
-                        </div>
-                        <div class="row justify-content-center">
-                            <p class="lead text-muted">Subir foto!</p>
-                        </div>
-                    </div>
-
-                </ng-template>
+            <div class="card-body text-secondary">
+              <div class="form-group green-border-focus">
+                <h5 class="card-title">Descripcion.</h5>
+                <textarea class="form-control" id="exampleFormControlTextarea5" rows="2"></textarea>
+              </div>
+              <div class="form-group">
+                <h5 class="card-title">Ubicacion.</h5>
+                <select class="form-control" id="exampleFormControlSelect1">
+                  <option>Seleccione una ubicacion.</option>
+                  <option>Playa 1</option>
+                  <option>Bar</option>
+                  <option>Playa 2</option>
+                  <option>Suits</option>
+                </select>
+              </div>
+              <h5 class="card-title">Selecciona la foto que deseas subir.</h5>
+              <app-file-upload></app-file-upload>
             </div>
-        </div>
-    </section>
-
-    <div class="album py-5 bg-light">
-        <div class="container">
-
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
-                        <img class="bd-placeholder-img card-img-top changeCursor" width="100%" height="225"
-                            src="../../assets/glen-jackson-301620.jpg" alt="Foto1" (click)="openXl(content)">
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
-                        <img class="bd-placeholder-img card-img-top changeCursor" width="100%" height="225"
-                            src="../../assets/glen-jackson-301620.jpg" alt="Foto1" (click)="openXl(content)">
-
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
-                        <img class="bd-placeholder-img card-img-top changeCursor" width="100%" height="225"
-                            src="../../assets/glen-jackson-301620.jpg" alt="Foto1" (click)="openXl(content)">
-
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
-                        <img class="bd-placeholder-img card-img-top changeCursor" width="100%" height="225"
-                            src="../../assets/glen-jackson-301620.jpg" alt="Foto1" (click)="openXl(content)">
-
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
-                        <img class="bd-placeholder-img card-img-top changeCursor" width="100%" height="225"
-                            src="../../assets/glen-jackson-301620.jpg" alt="Foto1" (click)="openXl(content)">
-
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
-                        <img class="bd-placeholder-img card-img-top changeCursor" width="100%" height="225"
-                            src="../../assets/glen-jackson-301620.jpg" alt="Foto1" (click)="openXl(content)">
-
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
-                        <img class="bd-placeholder-img card-img-top changeCursor" width="100%" height="225"
-                            src="../../assets/glen-jackson-301620.jpg" alt="Foto1" (click)="openXl(content)">
-
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
-                        <img class="bd-placeholder-img card-img-top changeCursor" width="100%" height="225"
-                            src="../../assets/glen-jackson-301620.jpg" alt="Foto1" (click)="openXl(content)">
-
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
-                        <img class="bd-placeholder-img card-img-top changeCursor" width="100%" height="225"
-                            src="../../assets/glen-jackson-301620.jpg" alt="Foto1" (click)="openXl(content)">
-
-                    </div>
-                </div>
+            <hr>
+            <div class=" card-body row justify-content-center">
+              <svg width="5em" height="5em" viewBox="0 0 16 16" class="bi bi-cloud-upload" fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                  d="M4.406 1.342A5.53 5.53 0 0 1 8 0c2.69 0 4.923 2 5.166 4.579C14.758 4.804 16 6.137 16 7.773 16 9.569 14.502 11 12.687 11H10a.5.5 0 0 1 0-1h2.688C13.979 10 15 8.988 15 7.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 2.825 10.328 1 8 1a4.53 4.53 0 0 0-2.941 1.1c-.757.652-1.153 1.438-1.153 2.055v.448l-.445.049C2.064 4.805 1 5.952 1 7.318 1 8.785 2.23 10 3.781 10H6a.5.5 0 0 1 0 1H3.781C1.708 11 0 9.366 0 7.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383z" />
+                <path fill-rule="evenodd"
+                  d="M7.646 4.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V14.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3z" />
+              </svg>
             </div>
-        </div>
+            <div class="row justify-content-center">
+              <p class="lead text-muted">Subir foto!</p>
+            </div>
+          </div>
+
+        </ng-template>
+
+        <ng-template #content3 let-modal>
+          <div class="modal-body text-center">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Fecha entrada</th>
+                  <th scope="col">Fecha salida</th>
+                  <th scope="col">Plan habitación</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>15 enero 2020</td>
+                  <td>21 enero 2020</td>
+                  <td>plan 3</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>15 febrero 2020</td>
+                  <td>17 febrero 2020</td>
+                  <td>plan 2</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>15 marzo 2020</td>
+                  <td>19 marzo 2020</td>
+                  <td>plan 1</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </ng-template>
+
+
+      </div>
     </div>
-    <app-footer></app-footer>
-</main>
+  </section>
 
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img class="bd-placeholder-img card-img-top changeCursor" width="100%" height="225"
+              src="../../assets/glen-jackson-301620.jpg" alt="Foto1" (click)="openXl(content)">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img class="bd-placeholder-img card-img-top changeCursor" width="100%" height="225"
+              src="../../assets/glen-jackson-301620.jpg" alt="Foto1" (click)="openXl(content)">
+
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img class="bd-placeholder-img card-img-top changeCursor" width="100%" height="225"
+              src="../../assets/glen-jackson-301620.jpg" alt="Foto1" (click)="openXl(content)">
+
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img class="bd-placeholder-img card-img-top changeCursor" width="100%" height="225"
+              src="../../assets/glen-jackson-301620.jpg" alt="Foto1" (click)="openXl(content)">
+
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img class="bd-placeholder-img card-img-top changeCursor" width="100%" height="225"
+              src="../../assets/glen-jackson-301620.jpg" alt="Foto1" (click)="openXl(content)">
+
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img class="bd-placeholder-img card-img-top changeCursor" width="100%" height="225"
+              src="../../assets/glen-jackson-301620.jpg" alt="Foto1" (click)="openXl(content)">
+
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img class="bd-placeholder-img card-img-top changeCursor" width="100%" height="225"
+              src="../../assets/glen-jackson-301620.jpg" alt="Foto1" (click)="openXl(content)">
+
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img class="bd-placeholder-img card-img-top changeCursor" width="100%" height="225"
+              src="../../assets/glen-jackson-301620.jpg" alt="Foto1" (click)="openXl(content)">
+
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img class="bd-placeholder-img card-img-top changeCursor" width="100%" height="225"
+              src="../../assets/glen-jackson-301620.jpg" alt="Foto1" (click)="openXl(content)">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  
+</main>

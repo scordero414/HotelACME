@@ -62,7 +62,7 @@
               <ngx-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ngx-slider>
             </div>
             <div class="form-btn">
-              <a pageScroll href="#rooms"><button class="submit-btn">Elegir habitación</button></a>
+              <a pageScroll href="#rooms"><button class="submit-btn" (click)="mostrarHabitaciones()">Elegir habitación</button></a>
             </div>
           </form>
         </div>
@@ -70,6 +70,27 @@
     </div>
   </div>
 </div>
-<div id="rooms">
-  <app-rooms></app-rooms>
+<div *ngIf="isReservaCompleta">
+  <div class="image-fondo text-center" style="background-color:#d0f2f7;" id="rooms">
+    <h2 class="pt-4 pb-4">Habitaciones disponibles</h2>
+  </div>
+  <div>
+    <app-rooms></app-rooms>
+  </div>
+</div>
+<div *ngIf="isReservaCompleta">
+  <div class="image-fondo text-center" style="background-color:#d0f2f7;" id="rooms">
+    <h2 class="pt-4 pb-4">Plan Habitacion</h2>
+  </div>
+  <div>
+    <app-plan-habitacion></app-plan-habitacion>
+  </div>
+</div>
+<div *ngIf="isReservaCompleta">
+  <div class="image-fondo text-center" style="background-color:#d0f2f7;" id="rooms">
+    <h2 class="pt-4 pb-4">Resumen de la reserva</h2>
+  </div>
+  <div>
+    <app-resumen-reserva></app-resumen-reserva>
+  </div>
 </div>

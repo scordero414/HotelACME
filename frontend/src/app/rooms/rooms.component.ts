@@ -9,7 +9,13 @@ export class RoomsComponent implements OnInit {
 
   constructor() { }
 
+  public isHabitacionSeleccionada;
   ngOnInit(): void {
+    this.isHabitacionSeleccionada = false;
+  }
+
+  public mostrarPlanHabitacion(){
+    this.isHabitacionSeleccionada = true;
   }
 
 }
