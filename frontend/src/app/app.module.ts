@@ -26,6 +26,8 @@ import { RoomsComponent } from './rooms/rooms.component';
 import { FooterComponent } from './footer/footer.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
+import { ResumenReservaComponent } from './resumen-reserva/resumen-reserva.component';
+import { PlanHabitacionComponent } from './plan-habitacion/plan-habitacion.component';
 
 
 
@@ -43,7 +45,9 @@ import { NgxSliderModule } from '@angular-slider/ngx-slider';
     SelectOriginComponent,
     RoomsComponent,
     FooterComponent,
-    ReservationComponent
+    ReservationComponent,
+    ResumenReservaComponent,
+    PlanHabitacionComponent
   ],
   imports: [
     BrowserModule,
