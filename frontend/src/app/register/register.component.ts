@@ -40,7 +40,7 @@ export class RegisterComponent implements OnInit {
 			this.form.sexo.setValue('Mujer');
     }
     
-    if(this.checkPasswords){
+    if(this.checkPasswords()){
       this.modelo = new User(
         0,
         this.form.nombre.value + ' ' + this.form.apellido.value,
@@ -54,8 +54,10 @@ export class RegisterComponent implements OnInit {
         (data) => {
           alert("Se ha registrado correctamente");
           console.log(data);
+          this.formulario.reset()
         },(error)=>{
-          console.log(error);
+          alert(error.error);
+          
         }
       )
     }else{
@@ -66,8 +68,7 @@ export class RegisterComponent implements OnInit {
   
 
   checkPasswords(){
-    if(this.form.password1.value == this.form.password2.value){
-      this.form.password.setValue(this.form.password1);
+    if(this.form.password1.value === this.form.password2.value){
       return true;
     }
     return false;
