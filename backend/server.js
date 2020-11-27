@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // Definir los endpoints
-app.use("/api/users", UsuarioApi);
+app.use("/api/usuario", UsuarioApi);
 
 mongoose.connect(
   "mongodb://localhost/hotel_acme",

@@ -29,6 +29,7 @@ import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { ResumenReservaComponent } from './resumen-reserva/resumen-reserva.component';
 import { PlanHabitacionComponent } from './plan-habitacion/plan-habitacion.component';
 import { ReservasUsuariosComponent } from './reservas-usuarios/reservas-usuarios.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -60,7 +61,10 @@ import { ReservasUsuariosComponent } from './reservas-usuarios/reservas-usuarios
     LightboxModule,
     ModalModule,
     RouterModule,
-    NgxSliderModule    
+    NgxSliderModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule    
   ],
   providers: [CountriesService],
   bootstrap: [AppComponent]
