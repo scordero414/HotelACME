@@ -37,14 +37,14 @@ const registerUser = (req, res) => {
 };
 
 const login = (req, res) => {
-  const { username, password } = req.body;
+  const { email, password } = req.body;
 
-  Usuario.findOne({ username }).then((user) => {
+  Usuario.findOne({ email }).then((user) => {
     if (!user) return res.status(404).send("Usuario no encontrado");
 
     bcrypt.compare(password, user.password).then((isMatch) => {
       if (isMatch) {
-        const payload = { id: user.id, name: user.name, email: user.email };
+        const payload = { id: user.id, name: user.name, ciudadResidencia: user.ciudadResidencia };
 
         jwt.sign(
           payload,

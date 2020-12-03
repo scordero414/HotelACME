@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import {User} from "../models/User";
 import {UserResponse} from "../models/UserResponse";
 import {map} from 'rxjs/operators';
+import jwt_decode from 'jwt-decode';
 
 
 @Injectable({
@@ -20,4 +21,17 @@ export class AuthenticationService {
       return data;
     }))
   }
+
+  loginUser(user: User){
+    return this.http.post<any>(`${this.RUTA}/api/usuario/login`, user)
+    .pipe(map((data) =>{
+      console.log(data);
+      let decoded = jwt_decode(data.token);
+      let token = data.token;
+      let user = {token, user:decoded}
+      localStorage.setItem('currentUser', JSON.stringify(user));
+    }));
+  }
+
+
 }

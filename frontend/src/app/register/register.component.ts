@@ -48,7 +48,10 @@ export class RegisterComponent implements OnInit {
         this.form.password1.value,
         this.form.fechaNacimiento.value,
         this.form.sexo.value,
-        "Manizales(Prueba)"
+        "Manizales(Prueba)",
+        null,
+        null,
+        null
       );
       this.authenticationService.registerUser(this.modelo).subscribe(
         (data) => {
