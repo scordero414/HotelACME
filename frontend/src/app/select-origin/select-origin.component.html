@@ -14,7 +14,7 @@
 </div>
 
 <div class="form-group" *ngIf="cityInfo.length != 0">
-    <select class="form-control centerValue">
+    <select class="form-control centerValue" (change)="onChangeCity($event.target.value)">
       <option value="-1">--Seleccionar ciudad--</option>
       <option *ngFor="let city of cityInfo; let k = index" value="{{k}}">{{city}}</option>
     </select>

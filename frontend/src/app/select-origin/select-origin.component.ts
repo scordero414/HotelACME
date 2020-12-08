@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CountriesService } from '../countries.service';
 
 @Component({
@@ -11,6 +11,9 @@ export class SelectOriginComponent implements OnInit {
   countryInfo: any[] = [];
   stateInfo: any[] = [];  
   cityInfo: any[] = [];
+
+  originInfo : string;
+  @Output() enviarInfo = new EventEmitter<string>();
 
   // paisSeleccionado : Boolean
 
@@ -33,13 +36,21 @@ export class SelectOriginComponent implements OnInit {
   }
 
   onChangeCountry(countryValue) {
-    this.stateInfo = this.countryInfo[countryValue].States;    
-    console.log("Hey");
-    console.log(this.stateInfo);
+    this.stateInfo = this.countryInfo[countryValue].States;
+    this.originInfo =  this.countryInfo[countryValue].CountryName + " - ";      
+    this.enviarInfo.emit(this.originInfo);
   }
 
   onChangeState(stateValue) {
-    this.cityInfo = this.stateInfo[stateValue].Cities;    
+    this.cityInfo = this.stateInfo[stateValue].Cities;
+    this.originInfo += this.stateInfo[stateValue].StateName + " - ";
+    this.enviarInfo.emit(this.originInfo);
+  }
+
+  onChangeCity(cityValue) {
+    this.originInfo += this.cityInfo[cityValue];
+    console.log(this.originInfo);  
+    this.enviarInfo.emit(this.originInfo);  
   }
 
 }

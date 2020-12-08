@@ -10,7 +10,8 @@ import { User } from '../models/User';
 })
 export class RegisterComponent implements OnInit {
 	formulario: FormGroup;
-	modelo: User;
+  modelo: User;
+  lugarOrigen: string;
 
 	constructor(private formBuilder: FormBuilder, private authenticationService: AuthenticationService) {}
 
@@ -48,7 +49,7 @@ export class RegisterComponent implements OnInit {
         this.form.password1.value,
         this.form.fechaNacimiento.value,
         this.form.sexo.value,
-        "Manizales(Prueba)",
+        this.lugarOrigen,
         null,
         null,
         null
