@@ -10,14 +10,19 @@ const registerUser = (req, res) => {
     if (user) {
       return res.status(400).send("Ya existe un usuario con este email");
     } else {
+      console.log(req.file); //Undefined.
       const newUser = new UsuarioRegistrado({
         name: req.body.name,
-        username: req.body.username,
         password: req.body.password,
         email: req.body.email,
         sexo: req.body.sexo,
         fechaNacimiento: req.body.fechaNacimiento,
         ciudadResidencia: req.body.ciudadResidencia,
+        filenameFoto: req.file.filename,
+        pathFoto: "/uploads/" + req.file.filename,
+        originalnameFoto: req.file.originalname,
+        mimetypeFoto: req.file.mimetype,
+        sizeFoto: req.file.size,
       });
 
       bcrypt.genSalt(10, (err, salt) => {

@@ -2,35 +2,43 @@
     <div class="signup-form">
         <form [formGroup]="formulario">
             <h2>Registrar</h2>
-            <p class="hint-text">Podrás realizar reservas, cargar imágenes de la estadia en el hotel, además de reaccionar y comentar las imágenes de otros usuarios.
+            <p class="hint-text">Podrás realizar reservas, cargar imágenes de la estadia en el hotel, además de
+                reaccionar y comentar las imágenes de otros usuarios.
             </p>
             <div class="form-group">
                 <div class="row">
-                    <div class="col"><input formControlName="nombre" type="text" class="form-control" name="first_name" placeholder="Nombre" required="required"></div>
-                    <div class="col"><input formControlName="apellido" type="text" class="form-control" name="last_name" placeholder="Apellido" required="required"></div>
+                    <div class="col"><input formControlName="nombre" type="text" class="form-control" name="first_name"
+                            placeholder="Nombre" required="required"></div>
+                    <div class="col"><input formControlName="apellido" type="text" class="form-control" name="last_name"
+                            placeholder="Apellido" required="required"></div>
                 </div>
             </div>
             <div class="form-group">
-                <input formControlName="email" type="email" class="form-control" name="email" placeholder="Correo electrónico" required="required">
+                <input formControlName="email" type="email" class="form-control" name="email"
+                    placeholder="Correo electrónico" required="required">
             </div>
             <div class="form-group">
-                <input formControlName="password1" type="password" class="form-control" name="password" placeholder="Contraseña" required="required">
+                <input formControlName="password1" type="password" class="form-control" name="password"
+                    placeholder="Contraseña" required="required">
             </div>
             <div class="form-group">
-                <input formControlName="password2" type="password" class="form-control" name="confirm_password" placeholder="Repetir contraseña" required="required">
+                <input formControlName="password2" type="password" class="form-control" name="confirm_password"
+                    placeholder="Repetir contraseña" required="required">
             </div>
 
 
             <label>Sexo</label>
             <div class="hint-text">
                 <div class="form-check form-check-inline">
-                    <input formControlName="sexoHombre" class="form-check-input" type="radio" name="sexoHombre" id="exampleRadios1" value="option1" checked>
+                    <input formControlName="sexoHombre" class="form-check-input" type="radio" name="sexoHombre"
+                        id="exampleRadios1" value="1" checked>
                     <label class="form-check-label" for="exampleRadios1">
                         Hombre
                     </label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input formControlName="sexoMujer" class="form-check-input" type="radio" name="sexoMujer" id="exampleRadios2" value="option2">
+                    <input formControlName="sexoMujer" class="form-check-input" type="radio" name="sexoMujer"
+                        id="exampleRadios2" value="2">
                     <label class="form-check-label" for="exampleRadios2">
                         Mujer
                     </label>
@@ -40,7 +48,8 @@
             <label for="example-date-input">Fecha</label>
 
             <div class="form-group">
-                <input formControlName="fechaNacimiento" class="form-control" type="date" value="2011-08-19" id="example-date-input">
+                <input formControlName="fechaNacimiento" class="form-control" type="date" value="2011-08-19"
+                    id="example-date-input">
             </div>
 
             <div>
@@ -49,18 +58,29 @@
 
             <label>Elige tu foto</label>
             <div class="hint-text">
-                <app-file-upload></app-file-upload>
+                <!-- <app-file-upload></app-file-upload> -->
+                <div class="input-group mb-2">
+                    <div class="custom-file">
+                        <input #file (change)="preview(file.files)" type="file" class="custom-file-input"
+                            accept="image/*" id="inputGroupFile02" />
+                        <label class="custom-file-label" for="inputGroupFile02">Elegir Foto</label>
+                    </div>
+                </div>
+                <div class="mb-2">
+                    <img [src]="imgURL" class="mt-3" height="200" *ngIf="imgURL" />
+                </div>
             </div>
 
 
+
             <div class="form-group">
-                <label class="form-check-label"><input type="checkbox" required="required"> Aceptar <a
-                        href="#">Términos
+                <label class="form-check-label"><input type="checkbox" required="required"> Aceptar <a href="#">Términos
                         de
                         uso</a> &amp; <a href="#">Política privacidad</a></label>
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-success btn-lg btn-block" (click)="registrar()">Registrarse</button>
+                <button type="submit" class="btn btn-success btn-lg btn-block"
+                    (click)="registrar()">Registrarse</button>
             </div>
         </form>
         <div class="text-center">¿Ya tienes una cuenta? <a href="/login" style="color: black;">Ingresa</a></div>

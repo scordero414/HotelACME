@@ -2,6 +2,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const cors  = require("cors");
+const path = require("path");
+const uploadMiddleware = require("./middlewares/uploadPhoto");
 
 // Importar routas de la api
 const UsuarioApi = require("./api/usuario");
@@ -13,8 +15,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 
+app.use(express.static(path.join(__dirname, "public")));
+app.use(uploadMiddleware);
+
 // Definir los endpoints
 app.use("/api/usuario", UsuarioApi);
+
+
 
 mongoose.connect(
   "mongodb://localhost/hotel_acme",

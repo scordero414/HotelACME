@@ -3,7 +3,8 @@
 
     <div class="row justify-content-center">
       <div class="col-3 ">
-        <img src="../../assets/girl.jpg" class="d-flex mx-auto imgPerfiles" />
+        <img [src]="config.RUTA_API + user?.pathFoto"  class="d-flex mx-auto imgPerfiles"/>
+        <!-- <img src="../../assets/girl.jpg" class="d-flex mx-auto imgPerfiles" /> -->
       </div>
       <div class="col-6 align-self-center">
         <h1>{{user?.name}}</h1>

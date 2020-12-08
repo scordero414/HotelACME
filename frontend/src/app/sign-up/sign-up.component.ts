@@ -36,7 +36,7 @@ export class SignUpComponent implements OnInit {
 	}
 
 	login() {
-		this.modelo = new User(0, null, this.form.email.value.trim(), this.form.password.value, null, null, null,null,null,null);
+		this.modelo = this.formulario.value;
 
 		this.authenticationService.loginUser(this.modelo).subscribe(
 			(data) => {
