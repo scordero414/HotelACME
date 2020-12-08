@@ -14,11 +14,7 @@ export class RegisterComponent implements OnInit {
 	modelo: User;
 	lugarOrigen: string;
 
-	//Imagen
-	public imagePath;
-	imgURL: any;
-	public message: string;
-	file: File;
+	public file: File;
 
 	constructor(private formBuilder: FormBuilder, private authenticationService: AuthenticationService) {}
 
@@ -94,22 +90,5 @@ export class RegisterComponent implements OnInit {
 		return false;
 	}
 
-	preview(files) {
-		if (files.length === 0) return;
-
-		var mimeType = files[0].type;
-		if (mimeType.match(/image\/*/) == null) {
-			this.message = 'Only images are supported.';
-			return;
-		}
-
-		this.file = files[0] as File;
-
-		var reader = new FileReader();
-		this.imagePath = files;
-		reader.readAsDataURL(files[0]);
-		reader.onload = (_event) => {
-			this.imgURL = reader.result;
-		};
-	}
+	
 }

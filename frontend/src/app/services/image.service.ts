@@ -21,6 +21,7 @@ export class ImageService {
     fd.append('image', image.image);
     fd.append('usuario', image.usuario);
 
+    console.log("fd "+ fd.get('image'));
     return this.http
       .post<ImageResponse>(`${config.RUTA_API}/api/images/create`, fd)
       .pipe(

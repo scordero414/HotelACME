@@ -1,9 +1,10 @@
-<div class="form-group float-left">
-    <input type="file" name="image" (change)="fileProgress($event)" accept="image/png, image/jpeg" />
+<div class="input-group mb-2">
+    <div class="custom-file">
+        <input #file (change)="preview(file.files)" type="file" class="custom-file-input"
+            accept="image/*" id="inputGroupFile02" />
+        <label class="custom-file-label" for="inputGroupFile02">Elegir Foto</label>
+    </div>
 </div>
-<div *ngIf="fileUploadProgress">
-    Upload progress: {{ fileUploadProgress }}
-</div>
-<div class="image-preview mb-3" *ngIf="previewUrl">
-    <img [src]="previewUrl"  class=" d-flex mx-auto imgPerfiles" />
+<div class="mb-2">
+    <img [src]="imgURL" class="mt-3" height="200" *ngIf="imgURL" />
 </div>
