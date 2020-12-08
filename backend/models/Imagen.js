@@ -1,19 +1,32 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const ImagenSchema = new Schema({
-  ubicacion: { type: String },
-  titulo: { type: String },
-  likes: [
-    {
-      user: {
-        type: Schema.Types.ObjectId,
-        ref: "Usuario",
-      },
-    },
-  ],
-  imagen: { data: Buffer, contentType: String },
-  usuario: { type: Schema.Types.ObjectId, ref: "Usuario" },
+	descripcion: { type: String },
+	ubicacion: { type: String },
+	likes: [
+		{
+			user: {
+				type: Schema.Types.ObjectId,
+				ref: 'Usuario'
+			}
+		}
+	],
+	comments: [
+		{
+			user: {
+				type: Schema.Types.ObjectId,
+				ref: 'Usuario'
+			},
+			comentario: { type: String }
+		}
+	],
+	filename: { type: String },
+	path: { type: String },
+	originalname: { type: String },
+	mimetype: { type: String },
+	size: { type: Number },
+	usuario: { type: Schema.Types.ObjectId, ref: 'Usuario' }
 });
 
-module.exports = Imagen = mongoose.model("Imagen", ImagenSchema);
+module.exports = Imagen = mongoose.model('Imagen', ImagenSchema);

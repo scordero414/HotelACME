@@ -8,9 +8,11 @@ const UsuarioSchema = new Schema({
   sexo: { type: String },
   fechaNacimiento: { type: Date },
   ciudadResidencia: { type: String },
-  fotoPerfil: { data: Buffer, contentType: String },
-  imagenes: [{ type: Schema.Types.ObjectId, ref: "Imagen" }],
-  reservas: [{ type: Schema.Types.ObjectId, ref: "Reserva" }],
+  filenameFoto: { type: String },
+  pathFoto: { type: String },
+  originalnameFoto: { type: String },
+  mimetypeFoto: { type: String },
+  sizeFoto: { type: Number },
 });
 
 module.exports = Usuario = mongoose.model("Usuario", UsuarioSchema);
