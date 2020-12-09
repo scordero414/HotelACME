@@ -7,6 +7,7 @@ import { ReservasService } from '../services/reservas.service';
 import { Reserva } from '../models/Reserva';
 import { Router } from '@angular/router';
 import { Habitacion } from '../models/Habitacion';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-reservation',
@@ -83,8 +84,10 @@ export class ReservationComponent implements OnInit {
     console.log(capacidad);
 
     if (capacidad > this.habitacion.capacidad) {
-      alert(
-        `Capacidad sobrepasada Esta habitacion solo tiene capacidad de ${this.habitacion.capacidad} personas`
+      Swal.fire(
+        'Error',
+        `Esta habitacion solo tiene capacidad de ${this.habitacion.capacidad} personas`,
+        'error'
       );
       return;
     }
@@ -102,13 +105,20 @@ export class ReservationComponent implements OnInit {
     this.reservasService.registerReserva(this.modelo).subscribe(
       (data: any) => {
         this.formulario.reset();
-       alert(`Habitación reservada,
-          La habitación se ha reservado existosamente.`
-        );
+        Swal.fire(
+					'Habitación reservada',
+					'La habitación se ha reservado existosamente',
+					'success'
+				  );
+        
       },
       (error) => {
         if (error.status === 400) {
-         alert('La habitación no se pudo reservar');
+         Swal.fire(
+					'Error',
+					"Hay algo mal con la habitacion, no se puede reservar.",
+					'error'
+				);
         }
       }
     );

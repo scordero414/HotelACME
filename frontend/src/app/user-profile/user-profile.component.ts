@@ -93,11 +93,16 @@ export class UserProfileComponent implements OnInit {
 					'Se ha cargado la foto exitosamente',
 					'success'
 				  );
-				this.formulario2.reset();
 				this.fotos.unshift(data);
+				this.formulario.reset();
+				
 			},
 			(error) => {
-				alert(error.error);
+				Swal.fire(
+					'Error',
+					"Hay algo mal :c ("+error.error+").",
+					'error'
+				);
 			}
 		);
 	}

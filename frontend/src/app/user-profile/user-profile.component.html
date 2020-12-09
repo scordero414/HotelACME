@@ -80,7 +80,6 @@
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th scope="col">#</th>
                   <th scope="col">Fecha entrada</th>
                   <th scope="col">Fecha salida</th>
                   <th scope="col">Costo</th>
@@ -89,7 +88,6 @@
               </thead>
               <tbody>
                 <tr *ngFor="let reserva of reservas">
-                  <th scope="row">1</th>
                   <td>{{ reserva?.fechaInicio.split('T')[0] }}</td>
                   <td>{{ reserva?.fechaFin.split('T')[0] }}</td>
                   <td>{{ reserva?.costoFinal }}</td>

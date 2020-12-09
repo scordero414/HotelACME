@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthenticationService } from '../services/authentication.service';
 import { User } from '../models/User';
+import Swal from 'sweetalert2';
 
 @Component({
 	selector: 'app-register',
@@ -70,16 +71,29 @@ export class RegisterComponent implements OnInit {
 			console.log(this.modelo.image.name);
 			this.authenticationService.registerUser(this.modelo).subscribe(
 				(data) => {
-					alert('Se ha registrado correctamente');
+					Swal.fire(
+						'Usuario creado',
+						'Se ha registrado correctamente',
+						'success'
+					  );
 					console.log(data);
 					this.formulario.reset();
 				},
 				(error) => {
-					alert(error.error);
+					Swal.fire(
+						'Error',
+						"Hay algo mal :c ("+error.error+").",
+						'error'
+					);
 				}
 			);
 		} else {
-			alert('Las contraseñas no coinciden.');
+			alert('');
+			Swal.fire(
+				'Error',
+				"Las contraseñas no coinciden.",
+				'error'
+			);
 		}
 	}
 

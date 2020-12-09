@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthenticationService } from '../services/authentication.service';
 import { User } from '../models/User';
 import jwt_decode from 'jwt-decode';
+import Swal from 'sweetalert2';
 
 @Component({
 	selector: 'app-sign-up',
@@ -40,13 +41,15 @@ export class SignUpComponent implements OnInit {
 
 		this.authenticationService.loginUser(this.modelo).subscribe(
 			(data) => {
-				alert('Ha iniciado correctamente.');
-        console.log(data);
-        this.goUserProfile()
+				this.goUserProfile()
         //this.formulario.reset();
 			},
 			(error) => {
-				alert( error.error);
+				Swal.fire(
+					'Error',
+					"Hay algo mal :c ("+error.error+").",
+					'error'
+				);
 			}
 		);
 	}
