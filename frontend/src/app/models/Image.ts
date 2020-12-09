@@ -1,5 +1,5 @@
 export class Image {
-  id: number;
+  _id: string;
   descripcion: string;
   ubicacion: string;
   likes: [];
@@ -11,7 +11,7 @@ export class Image {
   usuario: string;
   image: File;
   constructor(
-    id: number,
+    _id: string,
     descripcion: string,
     ubicacion: string,
     likes: [],
@@ -23,7 +23,7 @@ export class Image {
     usuario: string,
     image: File
   ) {
-    this.id = id;
+    this._id = _id;
     this.descripcion = descripcion;
     this.ubicacion = ubicacion;
     this.likes = likes;

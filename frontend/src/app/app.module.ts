@@ -30,6 +30,7 @@ import { ResumenReservaComponent } from './resumen-reserva/resumen-reserva.compo
 import { PlanHabitacionComponent } from './plan-habitacion/plan-habitacion.component';
 import { ReservasUsuariosComponent } from './reservas-usuarios/reservas-usuarios.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FotosUsuariosComponent } from './fotos-usuarios/fotos-usuarios.component';
 
 
 
@@ -50,7 +51,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReservationComponent,
     ResumenReservaComponent,
     PlanHabitacionComponent,
-    ReservasUsuariosComponent
+    ReservasUsuariosComponent,
+    FotosUsuariosComponent
   ],
   imports: [
     BrowserModule,
