@@ -129,7 +129,7 @@ export class FotosUsuariosComponent implements OnInit {
 		if (usuarioId) {
 		  if (!this.userLike) {
 			this.addLike(usuarioId);
-			console.log(usuarioId.name);
+			console.log("USewr "+usuarioId.name);
 		  } else {
 			this.removeLike(usuarioId);
 		  }
