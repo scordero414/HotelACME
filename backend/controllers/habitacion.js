@@ -7,7 +7,8 @@ const createRoom = (req, res) => {
   const newRoom = {
     capacidad: req.body.capacidad,
     costo: req.body.costo,
-    urlImage: req.body.urlImage
+    urlImage: req.body.urlImage,
+    descripcion: req.body.descripcion
   };
 
   if (req.body.tipo === "estandar") {

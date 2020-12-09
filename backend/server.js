@@ -8,6 +8,7 @@ const uploadMiddleware = require("./middlewares/uploadPhoto");
 // Importar routas de la api
 const UsuarioApi = require("./api/usuario");
 const ImagenApi = require("./api/imagen");
+const HabitacionApi = require("./api/habitacion");
 
 const app = express();
 
@@ -22,6 +23,7 @@ app.use(uploadMiddleware);
 // Definir los endpoints
 app.use("/api/usuario", UsuarioApi);
 app.use("/api/images", ImagenApi);
+app.use("/api/rooms", HabitacionApi);
 
 
 

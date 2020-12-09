@@ -19,11 +19,11 @@ export class UserProfileComponent implements OnInit {
 	public user: User;
 	public config = config;
 	public fotoPerfil;
-  	public fotos: Image[];
-  
-  	public currentUser;
-  	public currentImage: Image;
-  	public album = [{src:'', caption: '', thumb: ''}];
+	public fotos: Image[];
+
+	public currentUser;
+	public currentImage: Image;
+	public album = [ { src: '', caption: '', thumb: '' } ];
 
 	public modelo: Image;
 	public formulario: FormGroup;
@@ -40,8 +40,8 @@ export class UserProfileComponent implements OnInit {
 		private modalService: NgbModal,
 		private userService: UserService,
 		private imageService: ImageService,
-    	private formBuilder: FormBuilder,
-		private _lightbox: Lightbox,		
+		private formBuilder: FormBuilder,
+		private _lightbox: Lightbox,
 		private router: Router
 	) {}
 
@@ -55,16 +55,16 @@ export class UserProfileComponent implements OnInit {
 			this.user = data;
 		});
 		this.imageService.getImages().subscribe((data: any) => {
-      this.fotos = data?.filter((img) => img.usuario === userId).reverse();
-    });
+			this.fotos = data?.filter((img) => img.usuario === userId).reverse();
+		});
 
 		this.formulario = this.formBuilder.group({
 			descripcion: [ '', Validators.required ],
 			ubicacion: [ '', Validators.required ]
-	});
-	this.formulario2 = this.formBuilder.group({
-		comentario: [ '', Validators.required ]
-	});
+		});
+		this.formulario2 = this.formBuilder.group({
+			comentario: [ '', Validators.required ]
+		});
 	}
 
 	createImage() {
@@ -72,20 +72,20 @@ export class UserProfileComponent implements OnInit {
 			return;
 		}
 
-    	console.log("Form: "+this.formulario.value);
-    	this.modelo = this.formulario.value;
+		console.log('Form: ' + this.formulario.value);
+		this.modelo = this.formulario.value;
 		this.modelo.image = this.file;
-    	console.log(this.modelo.image.name);
+		console.log(this.modelo.image.name);
 		this.imageService.createImage(this.modelo).subscribe(
-			(data) => {
+			(data: Image) => {
 				alert('Se ha cargado la foto exitosamente');
-				console.log(data);
 				this.formulario2.reset();
+				this.fotos.unshift(data);
 			},
 			(error) => {
 				alert(error.error);
 			}
-    );
+		);
 	}
 
 	//Modales.
@@ -103,75 +103,74 @@ export class UserProfileComponent implements OnInit {
 	}
 	openM(content) {
 		this.modalService.open(content, { size: 'lg', centered: true });
-  }
-  
-  public open() {
-    this._lightbox.open(this.album, 0);
-  }
-  findUserLike = () => {
-	let usuarioId = this.getAuthUser();
-	if (this.currentImage.likes.filter((like: any) => like.user === usuarioId).length > 0) {
-		this.userLike = true;
-	} else {
-		this.userLike = false;
 	}
-	
-};
-get f2() {
-	return this.formulario2.controls;
-}
-addComment() {
-	let usuarioId = this.getAuthUser();
 
-	if (usuarioId) {
-		this.imageService.addComment(this.currentImage._id, usuarioId, this.f2.comentario.value).subscribe(
+	public open() {
+		this._lightbox.open(this.album, 0);
+	}
+	findUserLike = () => {
+		let usuarioId = this.getAuthUser();
+		if (this.currentImage.likes.filter((like: any) => like.user === usuarioId).length > 0) {
+			this.userLike = true;
+		} else {
+			this.userLike = false;
+		}
+	};
+	get f2() {
+		return this.formulario2.controls;
+	}
+	addComment() {
+		let usuarioId = this.getAuthUser();
+
+		if (usuarioId) {
+			this.imageService.addComment(this.currentImage._id, usuarioId, this.f2.comentario.value).subscribe(
+				(data: Image) => {
+					console.log(data);
+					this.currentImage = data;
+					this.formulario.reset();
+				},
+				(error) => {
+					console.log(error);
+				}
+			);
+		} else {
+			this.router.navigate([ '/login' ]);
+		}
+	}
+	getAuthUser = () => {
+		let usuario = JSON.parse(localStorage.getItem('currentUser'));
+		if (usuario) return usuario['user'].id;
+	};
+	like() {
+		let usuarioId = this.getAuthUser();
+		if (usuarioId) {
+			if (!this.userLike) {
+				this.addLike(usuarioId);
+			} else {
+				this.removeLike(usuarioId);
+			}
+		} else {
+			this.router.navigate([ '/login' ]);
+		}
+	}
+	addLike(usuarioId: string) {
+		this.imageService.addLike(this.currentImage._id, usuarioId).subscribe(
 			(data: Image) => {
 				console.log(data);
+				this.userLike = true;
 				this.currentImage = data;
-				this.formulario.reset();
 			},
-			(error) => {
-				console.log(error);
-			}
+			(error) => console.log(error)
 		);
-	} else {
-		this.router.navigate([ '/login' ]);
 	}
-}
-getAuthUser = () => {
-	let usuario = JSON.parse(localStorage.getItem('currentUser'));
-	if (usuario) return usuario['user'].id;
-};
-like() {
-	let usuarioId = this.getAuthUser();
-	if (usuarioId) {
-		if (!this.userLike) {
-			this.addLike(usuarioId);
-		} else {
-			this.removeLike(usuarioId);
-		}
-	} else {
-		this.router.navigate([ '/login' ]);
+	removeLike(usuarioId: string) {
+		this.imageService.removeLike(this.currentImage._id, usuarioId).subscribe(
+			(data: Image) => {
+				console.log(data);
+				this.userLike = false;
+				this.currentImage = data;
+			},
+			(error) => console.log(error)
+		);
 	}
-}
-addLike(usuarioId: string) {
-	this.imageService.addLike(this.currentImage._id, usuarioId).subscribe(
-		(data: Image) => {
-			console.log(data);
-			this.userLike = true;
-			this.currentImage = data;
-		},
-		(error) => console.log(error)
-	);
-}
-removeLike(usuarioId: string) {
-	this.imageService.removeLike(this.currentImage._id, usuarioId).subscribe(
-		(data: Image) => {
-			console.log(data);
-			this.userLike = false;
-			this.currentImage = data;
-		},
-		(error) => console.log(error)
-	);
-}
 }

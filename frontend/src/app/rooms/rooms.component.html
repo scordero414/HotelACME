@@ -1,4 +1,4 @@
-<div class="album py-5 bg-light">
+<!-- <div class="album py-5 bg-light">
   <div class="container">
     <div class="row">
       <div class="col-md-4">
@@ -8,7 +8,6 @@
             <img class="card-img-top" src="../../assets/room1.jpg" alt="Card image cap">
           </div>
 
-          <!--Card content-->
           <div class="card-body">
             <h5 class="font-weight-bold text-uppercase">
               <strong>ROOM WITH TERRACE</strong>
@@ -81,7 +80,6 @@
             <img class="card-img-top" src="../../assets/room2.jpg" alt="Card image cap">
           </div>
 
-          <!--Card content-->
           <div class="card-body">
             <h5 class="font-weight-bold text-uppercase">
               <strong>ROOM WITH TERRACE</strong>
@@ -155,7 +153,6 @@
             <img class="card-img-top" src="../../assets/room3.jpg" alt="Card image cap">
           </div>
 
-          <!--Card content-->
           <div class="card-body">
             <h5 class="font-weight-bold text-uppercase">
               <strong>ROOM WITH TERRACE</strong>
@@ -229,7 +226,6 @@
             <img class="card-img-top" src="../../assets/room3.jpg" alt="Card image cap">
           </div>
 
-          <!--Card content-->
           <div class="card-body">
             <h5 class="font-weight-bold text-uppercase">
               <strong>ROOM WITH TERRACE</strong>
@@ -302,7 +298,6 @@
             <img class="card-img-top" src="../../assets/room2.jpg" alt="Card image cap">
           </div>
 
-          <!--Card content-->
           <div class="card-body">
             <h5 class="font-weight-bold text-uppercase">
               <strong>ROOM WITH TERRACE</strong>
@@ -375,7 +370,6 @@
             <img class="card-img-top" src="../../assets/room1.jpg" alt="Card image cap">
           </div>
 
-          <!--Card content-->
           <div class="card-body">
             <h5 class="font-weight-bold text-uppercase">
               <strong>ROOM WITH TERRACE</strong>
@@ -442,4 +436,35 @@
 
     </div>
   </div>
+</div> -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 mx-auto">
+      <div class="form-group row">
+        <label for="selectHabitacion" class="lead col-1">Filtrar:</label>
+        <select
+          class="form-control col-2"
+          id="selectHabitacion"
+          (change)="filterRooms($event.target.value)"
+        >
+          <option value="" selected disabled>Seleccione tipo</option>
+          <option value="Superior">Superior</option>
+          <option value="Lujo">Lujo</option>
+          <option value="Estandar">Estandar</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="row d-flex justify-content-center">
+    <div
+      class="card ml-3 mb-3"
+      style="width: 18rem"
+      *ngFor="let habitacion of habitacionesFilter"
+    >
+      <app-room [habitacion]="habitacion"></app-room>
+    </div>
+  </div>
 </div>
+

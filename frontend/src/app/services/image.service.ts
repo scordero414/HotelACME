@@ -23,7 +23,7 @@ export class ImageService {
 
     console.log("fd "+ fd.get('image'));
     return this.http
-      .post<ImageResponse>(`${config.RUTA_API}/api/images/create`, fd)
+      .post<Image>(`${config.RUTA_API}/api/images/create`, fd)
       .pipe(
         map((data) => {
           return data;
