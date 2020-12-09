@@ -3,8 +3,8 @@ const Schema = mongoose.Schema;
 
 const ReservaSchema = new Schema({
   fechaInicio: { type: Date },
-  cantidadDias: { type: Number },
-  fechaFin: { type: Number },
+  cantidadDias: { type: Date },
+  fechaFin: { type: Date },
   cantidadPersonas: { type: Number },
   costoFinal: { type: Number },
   usuario: { type: Schema.Types.ObjectId, ref: "Usuario" },

@@ -9,9 +9,6 @@ import { Habitacion } from '../models/Habitacion';
 })
 export class RoomComponent implements OnInit {
 
-  @Output() enviarInfo = new EventEmitter<Habitacion>();
-
-
   @Input()
   habitacion: Habitacion;
 
@@ -31,8 +28,5 @@ export class RoomComponent implements OnInit {
     if (usuario) return usuario['user'].id;
   };
 
-  cambiarEstado(){
-    this.enviarInfo.emit(this.habitacion);
-  }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Options, LabelType } from '@angular-slider/ngx-slider';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PlanHabitacionComponent } from '../plan-habitacion/plan-habitacion.component';
@@ -15,10 +15,13 @@ import { Habitacion } from '../models/Habitacion';
 })
 export class ReservationComponent implements OnInit {
 
+  @Input()
   habitacion: Habitacion;
 
   formulario: FormGroup;
   modelo: Reserva;
+
+
 
   constructor( 
     private router: Router,
@@ -68,12 +71,16 @@ export class ReservationComponent implements OnInit {
   reservar() {
     let usuario = this.getAuthUser();
 
+    
     if (!usuario) {
       this.router.navigate(['/login']);
       return;
     }
 
-    let capacidad = this.f.cantidadAdultos.value + this.f.cantidadNinos.value;
+    let capacidad = parseInt(this.f.cantidadAdultos.value) + parseInt(this.f.cantidadNinos.value);
+
+    console.log(this.habitacion.capacidad);
+    console.log(capacidad);
 
     if (capacidad > this.habitacion.capacidad) {
       alert(
@@ -86,8 +93,7 @@ export class ReservationComponent implements OnInit {
       this.f.fechaInicio.value,
       this.f.fechaFin.value,
       capacidad,
-      this.minValue,
-      this.maxValue,
+      this.habitacion.costo,
       usuario,
       this.habitacion._id
     );

@@ -19,7 +19,7 @@ export class PaginaPrincipalComponent implements OnInit {
 
   public goReservation() {
     if(this.authenticationService.isLoggedIn()){
-      this.router.navigate(["/reservation"]);
+      this.router.navigate(["/rooms"]);
     }else{
       this.router.navigate(["/login"]);
     }

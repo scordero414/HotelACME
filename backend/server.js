@@ -9,6 +9,7 @@ const uploadMiddleware = require("./middlewares/uploadPhoto");
 const UsuarioApi = require("./api/usuario");
 const ImagenApi = require("./api/imagen");
 const HabitacionApi = require("./api/habitacion");
+const ReservaApi = require("./api/reserva");
 
 const app = express();
 
@@ -24,6 +25,7 @@ app.use(uploadMiddleware);
 app.use("/api/usuario", UsuarioApi);
 app.use("/api/images", ImagenApi);
 app.use("/api/rooms", HabitacionApi);
+app.use("/api/reservas", ReservaApi);
 
 
 
