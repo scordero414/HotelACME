@@ -83,27 +83,17 @@
                   <th scope="col">#</th>
                   <th scope="col">Fecha entrada</th>
                   <th scope="col">Fecha salida</th>
-                  <th scope="col">Plan habitación</th>
+                  <th scope="col">Costo</th>
+                  <th scope="col">Huespedes</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
+                <tr *ngFor="let reserva of reservas">
                   <th scope="row">1</th>
-                  <td>15 enero 2020</td>
-                  <td>21 enero 2020</td>
-                  <td>plan 3</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>15 febrero 2020</td>
-                  <td>17 febrero 2020</td>
-                  <td>plan 2</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>15 marzo 2020</td>
-                  <td>19 marzo 2020</td>
-                  <td>plan 1</td>
+                  <td>{{ reserva?.fechaInicio.split('T')[0] }}</td>
+                  <td>{{ reserva?.fechaFin.split('T')[0] }}</td>
+                  <td>{{ reserva?.costoFinal }}</td>
+                  <td>{{ reserva?.cantidadPersonas }}</td>
                 </tr>
               </tbody>
             </table>

@@ -73,6 +73,7 @@ const getUsers = (req, res) => {
 
 const getUserById = (req, res) => {
   Usuario.findById(req.params.id, (err, user) => {
+    console.log(req.params.id);
     if (err) return res.status(500).send(err.message);
     else res.status(200).json(user);
   });

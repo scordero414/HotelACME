@@ -88,6 +88,7 @@ export class ReservationComponent implements OnInit {
       );
       return;
     }
+    console.log(usuario);
     this.modelo = new Reserva(
       null,
       this.f.fechaInicio.value,

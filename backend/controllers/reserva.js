@@ -2,6 +2,7 @@ const Reserva = require("../models/Reserva");
 
 const createReserva = async (req, res) => {
   const newReserva = new Reserva({
+    id:null,
     fechaInicio: req.body.fechaInicio,
     fechaFin: req.body.fechaFin,
     cantidadPersonas: req.body.cantidadPersonas,
@@ -37,7 +38,16 @@ const createReserva = async (req, res) => {
       .catch((err) => console.log(err));
   }
 };
+const getReservas = (req, res) => {
+  Reserva.find((err, reservas) => {
+    if (err) return res.status(500).send(err.message);
+    else res.status(200).json(reservas);
+  });
+};
+
+  
 
 module.exports = {
   createReserva,
+  getReservas
 };

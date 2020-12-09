@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Reserva } from '../models/Reserva';
 import config from 'src/config';
+import { User } from '../models/User';
 
 @Injectable({
   providedIn: 'root'
@@ -19,5 +20,9 @@ export class ReservasService {
           return data;
         })
       );
+  }
+
+  getReservas(){
+    return this.http.get<Reserva[]>(`${config.RUTA_API}/api/reservas/all`);
   }
 }

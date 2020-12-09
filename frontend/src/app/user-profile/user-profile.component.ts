@@ -9,6 +9,9 @@ import config from '../../config';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Lightbox } from 'ngx-lightbox';
 import { Router } from '@angular/router';
+import { Reserva } from '../models/Reserva';
+import { ReservasService } from '../services/reservas.service';
+import Swal from 'sweetalert2';
 
 @Component({
 	selector: 'app-user-profile',
@@ -20,7 +23,7 @@ export class UserProfileComponent implements OnInit {
 	public config = config;
 	public fotoPerfil;
 	public fotos: Image[];
-
+	public reservas: Reserva[];
 	public currentUser;
 	public currentImage: Image;
 	public album = [ { src: '', caption: '', thumb: '' } ];
@@ -42,7 +45,8 @@ export class UserProfileComponent implements OnInit {
 		private imageService: ImageService,
 		private formBuilder: FormBuilder,
 		private _lightbox: Lightbox,
-		private router: Router
+		private router: Router,
+		private reservasService: ReservasService
 	) {}
 
 	private index: Number;
@@ -58,6 +62,12 @@ export class UserProfileComponent implements OnInit {
 			this.fotos = data?.filter((img) => img.usuario === userId).reverse();
 		});
 
+		this.reservasService.getReservas().subscribe((data: any) => {
+			this.reservas = data.filter(reserva => reserva.usuario === userId);
+			console.log(this.reservas);
+		});
+		
+		
 		this.formulario = this.formBuilder.group({
 			descripcion: [ '', Validators.required ],
 			ubicacion: [ '', Validators.required ]
@@ -78,7 +88,11 @@ export class UserProfileComponent implements OnInit {
 		console.log(this.modelo.image.name);
 		this.imageService.createImage(this.modelo).subscribe(
 			(data: Image) => {
-				alert('Se ha cargado la foto exitosamente');
+				Swal.fire(
+					'Imagen creada',
+					'Se ha cargado la foto exitosamente',
+					'success'
+				  );
 				this.formulario2.reset();
 				this.fotos.unshift(data);
 			},
