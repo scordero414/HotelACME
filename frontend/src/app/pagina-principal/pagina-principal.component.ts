@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-pagina-principal',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 export class PaginaPrincipalComponent implements OnInit {
 
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, public authenticationService: AuthenticationService) { }
 
   public images = ['../../assets/mbr.jpg', '../../assets/mbr-3.jpg', '../../assets/mbr-3.jpg'];
 

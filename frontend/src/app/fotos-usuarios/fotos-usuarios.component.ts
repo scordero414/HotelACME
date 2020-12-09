@@ -31,9 +31,8 @@ export class FotosUsuariosComponent implements OnInit {
 
 	public file: File;
 
-
 	public userOwnerImage: User;
-
+	public userCurrentComment: User;
 
 	public userLike: boolean;
 
@@ -59,9 +58,12 @@ export class FotosUsuariosComponent implements OnInit {
 		this.imageService.getImages().subscribe((data: any) => {
 			this.fotos = data.reverse();
 		});
+
+		this.formulario = this.formBuilder.group({
+			comentario: [ '', Validators.required ]
+		});
+
 	}
-
-
 
 	//Modales.
 	openXl(content, currentImage) {
@@ -72,91 +74,85 @@ export class FotosUsuariosComponent implements OnInit {
 		this.userService.getUser(currentImage.usuario).subscribe((data) => {
 			this.userOwnerImage = data;
 		});
+
+		// this.userLike = this.userOwnerImage.likes
+		this.findUserLike();
 	}
 
 	public open() {
 		this._lightbox.open(this.album, 0);
 	}
 
-	
 	findUserLike = () => {
 		let usuarioId = this.getAuthUser();
-		if (
-		  this.currentImage.likes.filter((like: any) => like.user === usuarioId).length > 0
-		) {
-		  this.userLike = true;
+		if (this.currentImage.likes.filter((like: any) => like.user === usuarioId).length > 0) {
+			this.userLike = true;
 		} else {
-		  this.userLike = false;
+			this.userLike = false;
 		}
-	  };
-	
-	  get f() {
+	};
+
+	get f() {
 		return this.formulario.controls;
-	  }
-	
-	  addComment() {
+	}
+
+	addComment() {
 		let usuarioId = this.getAuthUser();
-	
+
 		if (usuarioId) {
-		  this.imageService
-			.addComment(this.currentImage._id, usuarioId, this.f.comentario.value)
-			.subscribe(
-			  (data: Image) => {
-				console.log(data);
-				alert(
-				  'El comentario se ha agregado exitosamente'
-				);
-				this.currentImage = data;
-				this.formulario.reset();
-			  },
-			  (error) => {
-				console.log(error);
-			  }
+			this.imageService.addComment(this.currentImage._id, usuarioId, this.f.comentario.value).subscribe(
+				(data: Image) => {
+					console.log(data);
+					this.currentImage = data;
+					this.formulario.reset();
+				},
+				(error) => {
+					console.log(error);
+				}
 			);
 		} else {
-		  this.router.navigate(['/login']);
+			this.router.navigate([ '/login' ]);
 		}
-	  }
-	
-	  getAuthUser = () => {
+	}
+
+	getAuthUser = () => {
 		let usuario = JSON.parse(localStorage.getItem('currentUser'));
 		if (usuario) return usuario['user'].id;
-	  };
-	
-	  like() {
+	};
+
+	like() {
 		let usuarioId = this.getAuthUser();
-	
 		if (usuarioId) {
-		  if (!this.userLike) {
-			this.addLike(usuarioId);
-			console.log("USewr "+usuarioId.name);
-		  } else {
-			this.removeLike(usuarioId);
-		  }
+			if (!this.userLike) {
+				this.addLike(usuarioId);
+			} else {
+				this.removeLike(usuarioId);
+			}
 		} else {
-		  this.router.navigate(['/login']);
+			this.router.navigate([ '/login' ]);
 		}
-	  }
-	
-	  addLike(usuarioId: string) {
+	}
+
+	addLike(usuarioId: string) {
 		this.imageService.addLike(this.currentImage._id, usuarioId).subscribe(
-		  (data: Image) => {
-			console.log(data);
-			this.userLike = true;
-			this.currentImage = data;
-		  },
-		  (error) => console.log(error)
+			(data: Image) => {
+				console.log(data);
+				this.userLike = true;
+				this.currentImage = data;
+			},
+			(error) => console.log(error)
 		);
-	  }
-	
-	  removeLike(usuarioId: string) {
+	}
+
+	removeLike(usuarioId: string) {
 		this.imageService.removeLike(this.currentImage._id, usuarioId).subscribe(
-		  (data: Image) => {
-			console.log(data);
-			this.userLike = false;
-			this.currentImage = data;
-		  },
-		  (error) => console.log(error)
+			(data: Image) => {
+				console.log(data);
+				this.userLike = false;
+				this.currentImage = data;
+			},
+			(error) => console.log(error)
 		);
-	  }
+	}
+
 }

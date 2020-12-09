@@ -44,17 +44,6 @@ export class ImageService {
         })
       );
   }
-
-  removeLike(id: string, usuario: string) {
-    return this.http
-      .post(`${config.RUTA_API}/api/images/unlike/${id}`, { usuario })
-      .pipe(
-        map((data) => {
-          return data;
-        })
-      );
-  }
-
   addComment(id: string, usuario: string, comentario: string) {
     return this.http
       .post(`${config.RUTA_API}/api/images/comment/${id}`, {
@@ -67,6 +56,17 @@ export class ImageService {
         })
       );
   }
+  removeLike(id: string, usuario: string) {
+    return this.http
+      .post(`${config.RUTA_API}/api/images/unlike/${id}`, { usuario })
+      .pipe(
+        map((data) => {
+          return data;
+        })
+      );
+  }
+
+  
 
   getCommentsByPost(id: string) {
     return this.http.get(`${config.RUTA_API}/api/images/${id}/comments`);

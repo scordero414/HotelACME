@@ -31,6 +31,7 @@ import { PlanHabitacionComponent } from './plan-habitacion/plan-habitacion.compo
 import { ReservasUsuariosComponent } from './reservas-usuarios/reservas-usuarios.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FotosUsuariosComponent } from './fotos-usuarios/fotos-usuarios.component';
+import { ComentariosComponent } from './comentarios/comentarios.component';
 
 
 
@@ -52,7 +53,8 @@ import { FotosUsuariosComponent } from './fotos-usuarios/fotos-usuarios.componen
     ResumenReservaComponent,
     PlanHabitacionComponent,
     ReservasUsuariosComponent,
-    FotosUsuariosComponent
+    FotosUsuariosComponent,
+    ComentariosComponent
   ],
   imports: [
     BrowserModule,

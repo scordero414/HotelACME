@@ -34,12 +34,15 @@
             </ng-template>
           </ngb-carousel>
         </div>
-        <p class="text-center"><a class="btn btn-primary btn-lg" (click)="goReservation()" role="button">¡Reserva ya!</a>
+        <p class="text-center"><a class="btn btn-primary btn-lg" (click)="goReservation()" role="button">¡Reserva
+            ya!</a>
         </p>
       </div>
-      <div class="col-1"></div>
-      <div class="col-4 col-md-auto align-self-center">
-        <app-sign-up></app-sign-up>
+      <div  *ngIf="!authenticationService.isLoggedIn()">
+        <div class="col-1"></div>
+        <div class="col-4 col-md-auto align-self-center">
+          <app-sign-up></app-sign-up>
+        </div>
       </div>
     </div>
   </div>
