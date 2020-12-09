@@ -8,7 +8,6 @@ import { Image } from '../models/Image';
 import config from '../../config';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Lightbox } from 'ngx-lightbox';
-import { RoomsComponent } from '../rooms/rooms.component';
 import { Router } from '@angular/router';
 
 @Component({

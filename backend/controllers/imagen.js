@@ -84,7 +84,6 @@ const addComment = (req, res) => {
         });
 
         img.save().then((post) => {
-          console.log(post);
           res.json(post);
         });
       })
