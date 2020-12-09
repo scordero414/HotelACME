@@ -7,6 +7,7 @@ import { ImageService } from '../services/image.service';
 import { Image } from '../models/Image';
 import config from '../../config';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { Lightbox } from 'ngx-lightbox';
 
 @Component({
 	selector: 'app-user-profile',
@@ -17,7 +18,11 @@ export class UserProfileComponent implements OnInit {
 	public user: User;
 	public config = config;
 	public fotoPerfil;
-	public fotos: Image[];
+  public fotos: Image[];
+  
+  public currentUser;
+  public currentImage: Image;
+  public album = [{src:'', caption: '', thumb: ''}];
 
 	public modelo: Image;
 	public formulario: FormGroup;
@@ -28,26 +33,28 @@ export class UserProfileComponent implements OnInit {
 		private modalService: NgbModal,
 		private userService: UserService,
 		private imageService: ImageService,
-		private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private _lightbox: Lightbox
 	) {}
 
 	private index: Number;
 
 	ngOnInit(): void {
-		let currentUser = JSON.parse(localStorage.getItem('currentUser'));
-		let userId = currentUser['user'].id;
+		this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+		let userId = this.currentUser['user'].id;
 
 		this.userService.getUser(userId).subscribe((data) => {
 			this.user = data;
 		});
-		this.imageService.getImages().subscribe((data) => {
-      this.fotos = data.reverse();
+		this.imageService.getImages().subscribe((data: any) => {
+      this.fotos = data?.filter((img) => img.usuario === userId).reverse();
     });
 
 		this.formulario = this.formBuilder.group({
 			descripcion: [ '', Validators.required ],
 			ubicacion: [ '', Validators.required ]
-		});
+    });
+    console.log("Fotoscon: "+ this.fotos);
 	}
 
 	createImage() {
@@ -68,14 +75,20 @@ export class UserProfileComponent implements OnInit {
 			(error) => {
 				alert(error.error);
 			}
-		);
+    );
 	}
 
 	//Modales.
-	openXl(content) {
-		this.modalService.open(content, { size: 'xl', centered: true });
+	openXl(content,currentImage) {
+    this.modalService.open(content, { size: 'xl', centered: true });
+    this.currentImage = currentImage;
+    this.album[0].src = config.RUTA_API+currentImage.path;
 	}
 	openM(content) {
 		this.modalService.open(content, { size: 'lg', centered: true });
-	}
+  }
+  
+  public open() {
+    this._lightbox.open(this.album, 0);
+  }
 }
