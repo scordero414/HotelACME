@@ -4,11 +4,12 @@
   "description": "Proyecto para UAM",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dgutierrezd/hotel-ACME.git"
+    "url": "git+https://github.com/scordero414/HotelACME.git"
   },
   "keywords": [
     "hotel",
@@ -17,19 +18,19 @@
     "hotel",
     "acme"
   ],
-  "author": "Daniel Gutierrez, Juan Camilo Uribe, Jhonny Quiroz",
+  "author": "Sebastian Cordero, Michael Pineda",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/dgutierrezd/hotel-ACME/issues"
+    "url": "https://github.com/scordero414/HotelACME/issues"
   },
-  "homepage": "https://github.com/dgutierrezd/hotel-ACME#readme",
+  "homepage": "https://github.com/scordero414/HotelACME#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.10.7",
+    "mongoose": "^5.12.6",
     "mongoose-schema-extend": "^0.2.2",
     "multer": "^1.4.2",
     "nodemon": "^2.0.4",

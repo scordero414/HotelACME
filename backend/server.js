@@ -13,6 +13,9 @@ const ReservaApi = require("./api/reserva");
 
 const app = express();
 
+//Se define el puerto que se utilizará.
+app.set('port', process.env.PORT || 4000);
+
 //Se usan en la aplicacion.
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -30,13 +33,13 @@ app.use("/api/reservas", ReservaApi);
 
 
 mongoose.connect(
-  "mongodb://localhost/hotel_acme",
+  "mongodb+srv://scordero414:sebas414@hotel-acme.s8rqf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
   { useNewUrlParser: true },
   (err, res) => {
     if (err) console.log(`ERR: Connecting to DB ${err}`);
     else {
-      app.listen(4000, () => {
-        console.log("Servidor corriendo en http://localhost:4000");
+      app.listen(app.get('port'), () => {
+        console.log(`Servidor corriendo en ${app.get('port')}`);
       });
     }
   }
