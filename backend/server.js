@@ -13,8 +13,14 @@ const ReservaApi = require("./api/reserva");
 
 const app = express();
 
+require('dotenv').config ({path: 'variables.env'});
+console.log(process.env.DB_URL);
+
 //Se define el puerto que se utilizará.
-app.set('port', process.env.PORT || 4000);
+// app.set('port', process.env.PORT || 4000);
+
+const host = process.env.HOST || '0.0.0.0';
+const port = process.env.PORT || 4000;
 
 //Se usan en la aplicacion.
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -30,16 +36,16 @@ app.use("/api/images", ImagenApi);
 app.use("/api/rooms", HabitacionApi);
 app.use("/api/reservas", ReservaApi);
 
-
-
 mongoose.connect(
-  "mongodb+srv://scordero414:sebas414@hotel-acme.s8rqf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+  process.env.DB_URL,
+  // "mongodb://localhost//hotel_acme"
+  //"mongodb+srv://scordero414:sebas414@hotel-acme.s8rqf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
   { useNewUrlParser: true },
   (err, res) => {
     if (err) console.log(`ERR: Connecting to DB ${err}`);
     else {
-      app.listen(app.get('port'), () => {
-        console.log(`Servidor corriendo en ${app.get('port')}`);
+      app.listen(port, host, () => {
+        console.log(`Servidor corriendo en ${port}`);
       });
     }
   }
