@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg navbar-light" id="top">
+    <a class="navbar-brand" href="">Hotel ACME</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample01"
+        aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExample01">
+        <ul class="navbar-nav m-auto">
+            <li class="nav-item">
+                <a class="nav-link " pageScroll href="#info" >Conócenos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/rooms">Reservar</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" pageScroll href="#reseñas">Reseñas</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" pageScroll href="#ubicacion">Encuéntranos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" (click)="goUserProfile()" *ngIf="authenticationService.isLoggedIn()">Experiencias</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto" *ngIf="authenticationService.isLoggedIn()">
+            <li class="nav-item">
+                <a class="nav-link" (click)="goLogin()()">
+                    Mi perfil
+                </a>
+            </li>
+            <li>
+                <a class="nav-link" (click)="logOut()">
+                    Cerrar Sesión
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>

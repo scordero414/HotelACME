@@ -1,0 +1,199 @@
+<main role="main">
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron image-fondo1">
+    <div class="row justify-content-center">
+      <div class="col-5 ">
+        <div class="card border-primary mb-3">
+          <ngb-carousel *ngIf="images" class="card-body">
+            <ng-template ngbSlide>
+              <div class="picsum-img-wrapper">
+                <img [src]="images[0]" alt="Random first slide" class="img-fluid">
+              </div>
+              <div class="carousel-caption">
+                <h3>First slide label</h3>
+                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+              </div>
+            </ng-template>
+            <ng-template ngbSlide>
+              <div class="picsum-img-wrapper">
+                <img [src]="images[1]" alt="Random second slide" class="img-fluid">
+              </div>
+              <div class="carousel-caption">
+                <h3>Second slide label</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </div>
+            </ng-template>
+            <ng-template ngbSlide>
+              <div class="picsum-img-wrapper">
+                <img [src]="images[2]" alt="Random third slide" class="img-fluid">
+              </div>
+              <div class="carousel-caption">
+                <h3>Third slide label</h3>
+                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+              </div>
+            </ng-template>
+          </ngb-carousel>
+        </div>
+        <p class="text-center"><a class="btn btn-primary btn-lg" (click)="goReservation()" role="button" >¡Reserva
+            ya!</a>
+        </p>
+      </div>
+      <div  *ngIf="!authenticationService.isLoggedIn()">
+        <div class="col-1"></div>
+        <div class="col-4 col-md-auto align-self-center">
+          <app-sign-up></app-sign-up>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="container" id="info">
+    <h2 class="text-center pb-3">¿Quiénes somos?</h2>
+
+    <div class="row justify-content-around">
+      <div class="col-5 ">
+        <img src="../../assets/purple11-62749.jpg" alt="" class="img-fluid">
+      </div>
+
+      <div class="col-4 align-self-start">
+        <div class="container ">
+          <div class="text-center justify-content-center align-items-center">
+            <div class="col ">
+              <h2>Hotel Building</h2>
+              <p>It was built in 2007. Cras ultricies leo vitae magna fermentum, sed venenatis elit sagittis. Cras ac
+                justo erat. Integer interdum dapibus venenatis.
+              </p>
+            </div>
+            <div class="col ">
+              <h4>Rooms</h4>
+              <p class=" mbr-fonts-style display-7">
+                Maecenas interdum luctus libero in ultricies. Pellentesque viverra mattis tortor, a pellentesque metus
+                consequat id. Morbi eget consectetur turpis, in lacinia purus.
+              </p>
+            </div>
+            <div class="col ">
+              <h4>Rooms</h4>
+              <p class=" mbr-fonts-style display-7">
+                Maecenas interdum luctus libero in ultricies. Pellentesque viverra mattis tortor, a pellentesque metus
+                consequat id. Morbi eget consectetur turpis, in lacinia purus.
+              </p>
+            </div>
+            <div class="col ">
+              <h4>Details</h4>
+              <p class=" mbr-fonts-style display-7">
+                Maecenas interdum luctus libero in ultricies. Pellentesque viverra mattis tortor, a pellentesque metus
+                consequat id. Morbi eget consectetur turpis, in lacinia purus.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+  </div>
+
+  <hr>
+  <div class="container">
+    <div class="card-deck">
+      <div class="card">
+        <img class="card-img-top" src="../../assets/neonbrand-199264.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title text-center">Hotel Restaurant</h5>
+          <p class="card-text text-justify">This is a longer card with supporting text below as a natural lead-in to
+            additional content. This content is a little bit longer.</p>
+
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-img-top" src="../../assets/geoffrey-arduini-176853.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title text-center">Explore new places</h5>
+          <p class="card-text text-justify">This card has supporting text below as a natural lead-in to additional
+            content.
+          </p>
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-img-top" src="../../assets/sam-wheeler-2304.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title text-center">Closed beach</h5>
+          <p class="card-text text-justify">This is a wider card with supporting text below as a natural lead-in to
+            additional content. This card has even longer content than the first to show that equal height action.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class=" jumbotron image-fondo2" id="reseñas">
+    <div class=" container ">
+      <h2 class="text-center">Reseñas</h2>
+      <div class="row">
+
+        <div class="card-deck">
+          <div class="card bg-light mb-3">
+            <img class="d-flex mx-auto imgPerfiles" src="../../assets/elen-laureano-333976-1.jpg">
+            <div class="card-body">
+              <h5 class="card-title text-center">Valeria</h5>
+              <p class="card-text text-justify">Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus
+                ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta
+                sem malesuada magna mollis euismod. Donec sed odio
+                dui.
+              </p>
+
+            </div>
+          </div>
+          <div class="card bg-light mb-3">
+            <img class="d-flex mx-auto imgPerfiles" src="../../assets/girl.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title text-center">Ana</h5>
+              <p class="card-text text-justify">Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus
+                ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta
+                sem malesuada magna mollis euismod. Donec sed odio
+                dui.
+              </p>
+            </div>
+          </div>
+          <div class="card bg-light mb-3">
+            <img class="d-flex mx-auto imgPerfiles" src="../../assets/user-review.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title text-center">Valentina</h5>
+              <p class="card-text text-justify">Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus
+                ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta
+                sem malesuada magna mollis euismod. Donec sed odio
+                dui.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="container" id="ubicacion">
+    <h2 class="text-center">Ubicación</h2>
+    <div class="row d-flex justify-content-center">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3974.2244684268103!2d-75.5098177499794!3d5.067331596304001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e47657780a87f5d%3A0x8966f5d3b9231db9!2sHotel%20Carretero!5e0!3m2!1ses!2sco!4v1604276985145!5m2!1ses!2sco"
+        width="800" height="400" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+        tabindex="0"></iframe>
+    </div>
+  </div>
+
+  <div class="row justify-content-between">
+    <div class="col-2">
+      <a pageScroll href="#top">Back to top</a>
+    </div>
+    <div class="col-2 text-right">
+      <a href="/admin">Modo admin</a>
+    </div>
+  </div>
+
+</main>

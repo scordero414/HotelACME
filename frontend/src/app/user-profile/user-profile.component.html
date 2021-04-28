@@ -1,0 +1,187 @@
+<main role="main">
+  <section class="jumbotron text-center bg-light">
+
+    <div class="row justify-content-center">
+      <div class="col-3 ">
+        <img [src]="config.RUTA_API + user?.pathFoto" class="d-flex mx-auto imgPerfiles" />
+        <!-- <img src="../../assets/girl.jpg" class="d-flex mx-auto imgPerfiles" /> -->
+      </div>
+      <div class="col-6 align-self-center">
+        <h1>{{user?.name}}</h1>
+        <p class="lead text-muted">
+          {{user?.ciudadResidencia}}
+        </p>
+        <p class="lead text-muted">Fecha de nacimiento:
+          {{user?.fechaNacimiento.split('T')[0]}}
+        </p>
+        <ng-template #content let-modal>
+          <div class="modal-header">
+            <h4 class="modal-title">Descripción</h4>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <app-description-image></app-description-image>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+          </div>
+        </ng-template>
+
+
+        <button type="button" class="btn btn-primary mr-5" (click)="openM(content2)">Subir una foto</button>
+        <button type="button" class="btn btn-primary" (click)="openM(content3)">Mis reservas</button>
+
+        <ng-template #content2 let-modal>
+          <form [formGroup]="formulario">
+            <div class="modal-body">
+              <div class="row justify-content-center">
+                <h5 class="card-title">Subir una foto</h5>
+              </div>
+              <div class="card-body text-secondary">
+                <div class="form-group green-border-focus">
+                  <h5 class="card-title">Descripción.</h5>
+                  <textarea formControlName="descripcion" class="form-control" id="exampleFormControlTextarea5"
+                    rows="2"></textarea>
+                </div>
+                <div class="form-group">
+                  <h5 class="card-title">Ubicación.</h5>
+                  <select formControlName="ubicacion" class="form-control" id="exampleFormControlSelect1">
+                    <option>Seleccione una ubicación.</option>
+                    <option>Playa 1</option>
+                    <option>Bar</option>
+                    <option>Playa 2</option>
+                    <option>Suits</option>
+                  </select>
+                </div>
+                <h5 class="card-title">Selecciona la foto que deseas subir.</h5>
+                <app-file-upload (enviarInfo)="file = $event"></app-file-upload>
+              </div>
+              <hr>
+              <div class=" card-body row justify-content-center">
+                <svg width="5em" height="5em" viewBox="0 0 16 16" class="bi bi-cloud-upload" fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd"
+                    d="M4.406 1.342A5.53 5.53 0 0 1 8 0c2.69 0 4.923 2 5.166 4.579C14.758 4.804 16 6.137 16 7.773 16 9.569 14.502 11 12.687 11H10a.5.5 0 0 1 0-1h2.688C13.979 10 15 8.988 15 7.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 2.825 10.328 1 8 1a4.53 4.53 0 0 0-2.941 1.1c-.757.652-1.153 1.438-1.153 2.055v.448l-.445.049C2.064 4.805 1 5.952 1 7.318 1 8.785 2.23 10 3.781 10H6a.5.5 0 0 1 0 1H3.781C1.708 11 0 9.366 0 7.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383z" />
+                  <path fill-rule="evenodd"
+                    d="M7.646 4.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V14.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3z" />
+                </svg>
+              </div>
+              <div class="row justify-content-center">
+                <p class="lead text-muted" (click)=createImage()>Subir foto!</p>
+              </div>
+            </div>
+          </form>
+        </ng-template>
+
+        <ng-template #content3 let-modal>
+          <div class="modal-body text-center">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">Fecha entrada</th>
+                  <th scope="col">Fecha salida</th>
+                  <th scope="col">Costo</th>
+                  <th scope="col">Huespedes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let reserva of reservas">
+                  <td>{{ reserva?.fechaInicio.split('T')[0] }}</td>
+                  <td>{{ reserva?.fechaFin.split('T')[0] }}</td>
+                  <td>{{ reserva?.costoFinal }}</td>
+                  <td>{{ reserva?.cantidadPersonas }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </ng-template>
+
+
+      </div>
+    </div>
+  </section>
+  <div class="mt-5">
+    <div class="container">
+
+      <div *ngFor="let foto of fotos">
+        <div class="col-md-4" style="float: left;">
+          <div class="card mb-4 shadow-sm">
+            <img class="bd-placeholder-img card-img-top changeCursor" width="100%" height="230"
+              [src]="config.RUTA_API+foto.path" alt="Foto1" (click)="openXl(content4, foto)">
+          </div>
+        </div>
+        <ng-template #content4 let-modal>
+          <div class="row justify-content-center mb-5 mt-5 pb-3 pt-3 align-items-center">
+              <div class="col-5 ">
+                  <img class="bd-placeholder-img card-img-top changeCursor cursor" width="100%"
+                      [src]="config.RUTA_API+foto.path" alt="Foto1" (click)="open()">
+              </div>
+              <div class="col-6">
+                  <div class="d-flex row ">
+                      <div class="col">
+                          <div class="d-flex flex-column comment-section">
+                              <div class="bg-white">
+                                  <div class="d-flex flex-row user-info"><img class="rounded-circle"
+                                          [src]="config.RUTA_API + userOwnerImage?.pathFoto" width="40">
+                                      <div class="d-flex flex-column justify-content-start ml-2"><span
+                                              class="d-block font-weight-bold name">{{userOwnerImage?.name}}</span><span
+                                              class="date text-black-50">{{currentImage.ubicacion}}</span></div>
+                                  </div>
+                                  <div class="mt-2">
+                                      <p class="comment-text">{{currentImage.descripcion}}</p>
+                                  </div>
+                              </div>
+                              <div *ngIf="currentImage?.comments.length > 0"
+                                  style="width:100%; height:400px; overflow: scroll;">
+                                  <hr />
+                                  <div>
+                                      <ul>
+                                          <div *ngFor="let comment of currentImage?.comments">
+                                              <app-comentarios [comment]="comment"></app-comentarios>
+                                          </div>
+                                      </ul>
+                                  </div>
+                              </div>
+
+                              <div class="bg-light p-2">
+                                  <div class="d-flex flex-row align-items-start"><img class="rounded-circle"
+                                      [src]="config.RUTA_API + user?.pathFoto" width="40">
+                                      <div>
+                                          <form [formGroup]="formulario2">
+                                              <textarea formControlName="comentario" cols="100%" rows="1"
+                                                  class="form-control ml-1 shadow-none textarea"
+                                                  placeholder="Aegraga un comentario."></textarea>
+                                          </form>
+                                      </div>
+                                  </div>
+
+                                  <div class="mt-2 text-right">
+                                      <button type="button" class="btn btn-outline-primary btn-sm ml-1 shadow-none"
+                                          (click)="like()" style="float: left;">
+                                          <span *ngIf="!userLike">Like
+                                          </span>
+                                          <span *ngIf="userLike">
+                                              Dislike
+                                          </span>
+                                          <span class="ml-1">{{ currentImage?.likes.length }}</span>
+                                      </button>
+                                      <button class="btn btn-primary btn-sm shadow-none" (click)="addComment() "
+                                          type="button">Post
+                                          comment</button>
+                                      <button class="btn btn-outline-primary btn-sm ml-1 shadow-none" type="button"
+                                          (click)="this.formulario.reset()">Cancel</button>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </ng-template>
+      </div>
+      
+    </div>
+  </div>
+</main>

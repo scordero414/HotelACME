@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 mx-auto">
+      <div class="form-group row">
+        <label for="selectHabitacion" class="lead col-1">Filtrar:</label>
+        <select
+          class="form-control col-2"
+          id="selectHabitacion"
+          (change)="filterRooms($event.target.value)"
+        >
+          <option value="" selected disabled>Seleccione tipo</option>
+          <option value="Superior">Superior</option>
+          <option value="Lujo">Lujo</option>
+          <option value="Estandar">Estandar</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="row d-flex justify-content-center">
+    <div
+      class="card ml-3 mb-3"
+      style="width: 18rem"
+      *ngFor="let habitacion of habitacionesFilter"
+    >
+      <app-room [habitacion]="habitacion"></app-room>
+    </div>
+  </div>
+</div>
+
