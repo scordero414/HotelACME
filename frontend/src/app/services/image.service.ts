@@ -23,7 +23,7 @@ export class ImageService {
 
     console.log("fd "+ fd.get('image'));
     return this.http
-      .post<Image>(`${config.RUTA_API}/api/images/create`, fd)
+      .post<Image>(`/api/images/create`, fd)
       .pipe(
         map((data) => {
           return data;
@@ -32,12 +32,12 @@ export class ImageService {
   }
 
   getImages() {
-    return this.http.get<Image[]>(`${config.RUTA_API}/api/images/all`);
+    return this.http.get<Image[]>(`/api/images/all`);
   }
 
   addLike(id: string, usuario: string) {
     return this.http
-      .post(`${config.RUTA_API}/api/images/like/${id}`, { usuario })
+      .post(`/api/images/like/${id}`, { usuario })
       .pipe(
         map((data) => {
           return data;
@@ -46,7 +46,7 @@ export class ImageService {
   }
   addComment(id: string, usuario: string, comentario: string) {
     return this.http
-      .post(`${config.RUTA_API}/api/images/comment/${id}`, {
+      .post(`/api/images/comment/${id}`, {
         usuario,
         comentario,
       })
@@ -58,7 +58,7 @@ export class ImageService {
   }
   removeLike(id: string, usuario: string) {
     return this.http
-      .post(`${config.RUTA_API}/api/images/unlike/${id}`, { usuario })
+      .post(`/api/images/unlike/${id}`, { usuario })
       .pipe(
         map((data) => {
           return data;
@@ -69,6 +69,6 @@ export class ImageService {
   
 
   getCommentsByPost(id: string) {
-    return this.http.get(`${config.RUTA_API}/api/images/${id}/comments`);
+    return this.http.get(`/api/images/${id}/comments`);
   }
 }

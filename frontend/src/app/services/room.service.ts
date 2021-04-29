@@ -11,6 +11,6 @@ export class RoomService {
   constructor(private http: HttpClient) {}
 
   getRooms() {
-    return this.http.get<Habitacion[]>(`${config.RUTA_API}/api/rooms/all`);
+    return this.http.get<Habitacion[]>(`/api/rooms/all`);
   }
 }

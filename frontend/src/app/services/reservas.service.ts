@@ -14,7 +14,7 @@ export class ReservasService {
 
   registerReserva(reserva: Reserva) {
     return this.http
-      .post(`${config.RUTA_API}/api/reservas/create`, reserva)
+      .post(`/api/reservas/create`, reserva)
       .pipe(
         map((data) => {
           return data;
@@ -23,6 +23,6 @@ export class ReservasService {
   }
 
   getReservas(){
-    return this.http.get<Reserva[]>(`${config.RUTA_API}/api/reservas/all`);
+    return this.http.get<Reserva[]>(`/api/reservas/all`);
   }
 }

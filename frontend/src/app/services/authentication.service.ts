@@ -25,14 +25,14 @@ export class AuthenticationService {
     fdUser.append('ciudadResidencia', user.ciudadResidencia);
     fdUser.append('image', user.image);
     console.log(fdUser.get('image'));
-    return this.http.post<UserResponse>(`${config.RUTA_API}/api/usuario/register`, fdUser)
+    return this.http.post<UserResponse>(`/api/usuario/register`, fdUser)
     .pipe(map((data) =>{
       return data;
     }))
   }
 
   loginUser(user: User){
-    return this.http.post<any>(`${config.RUTA_API}/api/usuario/login`, user)
+    return this.http.post<any>(`/api/usuario/login`, user)
     .pipe(map((data) =>{
       console.log(data);
       let decoded = jwt_decode(data.token);

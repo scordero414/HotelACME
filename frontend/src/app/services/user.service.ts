@@ -14,6 +14,6 @@ export class UserService {
 
   
   getUser(id:string){
-    return this.http.get<User>(`${this.RUTA}/api/usuario/${id}`)
+    return this.http.get<User>(`/api/usuario/${id}`)
   }
 }
